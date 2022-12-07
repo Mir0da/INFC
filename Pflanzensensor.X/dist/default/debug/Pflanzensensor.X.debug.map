@@ -1,7 +1,7 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
-                              build/default/production/main.o (__do_clear_bss)
+                              build/default/debug/main.o (__do_copy_data)
 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
                               C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o (exit)
 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
@@ -13,16 +13,17 @@ Discarded input sections
 
  .data          0x0000000000000000        0x0 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
  .bss           0x0000000000000000        0x0 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .text          0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
- .data          0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
- .bss           0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
- .text          0x0000000000000000        0x0 build/default/production/main.o
- .data          0x0000000000000000        0x0 build/default/production/main.o
- .bss           0x0000000000000000        0x0 build/default/production/main.o
- .text.ISR      0x0000000000000000       0x1e build/default/production/main.o
- .text          0x0000000000000000        0x0 build/default/production/uart.o
- .data          0x0000000000000000        0x0 build/default/production/uart.o
- .bss           0x0000000000000000        0x0 build/default/production/uart.o
+ .text          0x0000000000000000        0x0 build/default/debug/Feuchtigkeit.o
+ .data          0x0000000000000000        0x0 build/default/debug/Feuchtigkeit.o
+ .bss           0x0000000000000000        0x0 build/default/debug/Feuchtigkeit.o
+ .text          0x0000000000000000        0x0 build/default/debug/main.o
+ .data          0x0000000000000000        0x0 build/default/debug/main.o
+ .bss           0x0000000000000000        0x0 build/default/debug/main.o
+ .data.ADC_High_Byte
+                0x0000000000000000        0x2 build/default/debug/main.o
+ .text          0x0000000000000000        0x0 build/default/debug/uart.o
+ .data          0x0000000000000000        0x0 build/default/debug/uart.o
+ .bss           0x0000000000000000        0x0 build/default/debug/uart.o
  .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
@@ -81,12 +82,14 @@ Linker script and memory map
 Address of section .data set to 0x800100
 LOAD C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
                 0x0000000000000001                __MPLAB_BUILD = 0x1
-LOAD build/default/production/Feuchtigkeit.o
-LOAD build/default/production/main.o
-LOAD build/default/production/uart.o
+LOAD build/default/debug/Feuchtigkeit.o
+LOAD build/default/debug/main.o
+LOAD build/default/debug/uart.o
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
 END GROUP
+                0x0000000000000001                __MPLAB_DEBUG = 0x1
+                0x0000000000000001                __DEBUG = 0x1
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a
 LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
@@ -193,7 +196,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000       0xc2
+.text           0x0000000000000000       0xbc
  *(.vectors)
  .vectors       0x0000000000000000       0x68 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
                 0x0000000000000000                __vector_default
@@ -201,44 +204,43 @@ END GROUP
  *(.vectors)
  *(.progmem.gcc*)
  *(.dinit)
- .dinit         0x0000000000000068        0x5 data_init
-                0x000000000000006e                . = ALIGN (0x2)
- *fill*         0x000000000000006d        0x1 
-                0x000000000000006e                __trampolines_start = .
+ .dinit         0x0000000000000068        0x0 data_init
+                0x0000000000000068                . = ALIGN (0x2)
+                0x0000000000000068                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000000000006e        0x0 linker stubs
+ .trampolines   0x0000000000000068        0x0 linker stubs
  *(.trampolines*)
-                0x000000000000006e                __trampolines_end = .
+                0x0000000000000068                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
-                0x000000000000006e                . = ALIGN (0x2)
+                0x0000000000000068                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000000000006e                __ctors_start = .
+                0x0000000000000068                __ctors_start = .
  *(.ctors)
-                0x000000000000006e                __ctors_end = .
-                0x000000000000006e                __dtors_start = .
+                0x0000000000000068                __ctors_end = .
+                0x0000000000000068                __dtors_start = .
  *(.dtors)
-                0x000000000000006e                __dtors_end = .
+                0x0000000000000068                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000000000006e        0x0 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
-                0x000000000000006e                __init
+ .init0         0x0000000000000068        0x0 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+                0x0000000000000068                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000000000006e        0xc C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+ .init2         0x0000000000000068        0xc C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000000000007a       0x3c c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
-                0x000000000000007a                __do_copy_data
-                0x00000000000000a8                __do_clear_bss
+ .init4         0x0000000000000074       0x3c c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
+                0x0000000000000074                __do_copy_data
+                0x00000000000000a2                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -249,12 +251,12 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000000000000b6        0x8 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+ .init9         0x00000000000000b0        0x8 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
  *(.init9)
-                0x00000000000000be                . = ALIGN (0x2)
+                0x00000000000000b8                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000000be        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
-                0x00000000000000be                _exit
+ .fini9         0x00000000000000b8        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+                0x00000000000000b8                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -273,11 +275,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000000be        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+ .fini0         0x00000000000000b8        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000000c2                _etext = .
+                0x00000000000000bc                _etext = .
 
-.data           0x0000000000800100        0x0 load address 0x00000000000000c2
+.data           0x0000000000800100        0x0 load address 0x00000000000000bc
                 [!provide]                        PROVIDE (__data_start, .)
  *(.gnu.linkonce.d*)
  *(.gnu.linkonce.r*)
@@ -289,8 +291,8 @@ END GROUP
                 [!provide]                        PROVIDE (__bss_start, .)
  *(COMMON)
                 [!provide]                        PROVIDE (__bss_end, .)
-                0x00000000000000c2                __data_load_start = LOADADDR (.data)
-                0x00000000000000c2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000000000000bc                __data_load_start = LOADADDR (.data)
+                0x00000000000000bc                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800100        0x0
                 [!provide]                        PROVIDE (__noinit_start, .)
@@ -337,10 +339,10 @@ END GROUP
 
 .comment        0x0000000000000000       0x2f
  *(.comment)
- .comment       0x0000000000000000       0x2f build/default/production/Feuchtigkeit.o
+ .comment       0x0000000000000000       0x2f build/default/debug/Feuchtigkeit.o
                                          0x30 (size before relaxing)
- .comment       0x000000000000002f       0x30 build/default/production/main.o
- .comment       0x000000000000002f       0x30 build/default/production/uart.o
+ .comment       0x000000000000002f       0x30 build/default/debug/main.o
+ .comment       0x000000000000002f       0x30 build/default/debug/uart.o
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
 
@@ -371,55 +373,54 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000       0x70
+.debug_aranges  0x0000000000000000       0x68
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x20 build/default/production/Feuchtigkeit.o
+                0x0000000000000000       0x20 build/default/debug/Feuchtigkeit.o
  .debug_aranges
-                0x0000000000000020       0x28 build/default/production/main.o
+                0x0000000000000020       0x20 build/default/debug/main.o
  .debug_aranges
-                0x0000000000000048       0x28 build/default/production/uart.o
+                0x0000000000000040       0x28 build/default/debug/uart.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000      0xf47
+.debug_info     0x0000000000000000      0xeda
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x5f4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_info    0x00000000000005f4      0x268 build/default/production/Feuchtigkeit.o
- .debug_info    0x000000000000085c      0x464 build/default/production/main.o
- .debug_info    0x0000000000000cc0      0x287 build/default/production/uart.o
+ .debug_info    0x00000000000005f4      0x275 build/default/debug/Feuchtigkeit.o
+ .debug_info    0x0000000000000869      0x3dd build/default/debug/main.o
+ .debug_info    0x0000000000000c46      0x294 build/default/debug/uart.o
 
-.debug_abbrev   0x0000000000000000      0x7bc
+.debug_abbrev   0x0000000000000000      0x77a
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x5a2 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_abbrev  0x00000000000005a2       0x44 build/default/production/Feuchtigkeit.o
- .debug_abbrev  0x00000000000005e6      0x16b build/default/production/main.o
- .debug_abbrev  0x0000000000000751       0x6b build/default/production/uart.o
+ .debug_abbrev  0x00000000000005a2       0x44 build/default/debug/Feuchtigkeit.o
+ .debug_abbrev  0x00000000000005e6      0x129 build/default/debug/main.o
+ .debug_abbrev  0x000000000000070f       0x6b build/default/debug/uart.o
 
-.debug_line     0x0000000000000000      0x3b9
+.debug_line     0x0000000000000000      0x387
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x137 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_line    0x0000000000000137       0xa2 build/default/production/Feuchtigkeit.o
- .debug_line    0x00000000000001d9      0x124 build/default/production/main.o
- .debug_line    0x00000000000002fd       0xbc build/default/production/uart.o
+ .debug_line    0x0000000000000137       0xa2 build/default/debug/Feuchtigkeit.o
+ .debug_line    0x00000000000001d9       0xf2 build/default/debug/main.o
+ .debug_line    0x00000000000002cb       0xbc build/default/debug/uart.o
 
-.debug_frame    0x0000000000000000       0x8c
+.debug_frame    0x0000000000000000       0x7c
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x24 build/default/production/Feuchtigkeit.o
- .debug_frame   0x0000000000000024       0x34 build/default/production/main.o
- .debug_frame   0x0000000000000058       0x34 build/default/production/uart.o
+ .debug_frame   0x0000000000000000       0x24 build/default/debug/Feuchtigkeit.o
+ .debug_frame   0x0000000000000024       0x24 build/default/debug/main.o
+ .debug_frame   0x0000000000000048       0x34 build/default/debug/uart.o
 
 .debug_str      0x0000000000000000      0x233
  *(.debug_str)
  .debug_str     0x0000000000000000      0x208 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_str     0x0000000000000208        0x0 build/default/production/Feuchtigkeit.o
- .debug_str     0x0000000000000208       0x2b build/default/production/main.o
- .debug_str     0x0000000000000233        0x0 build/default/production/uart.o
+ .debug_str     0x0000000000000208        0x0 build/default/debug/Feuchtigkeit.o
+ .debug_str     0x0000000000000208       0x2b build/default/debug/main.o
+ .debug_str     0x0000000000000233        0x0 build/default/debug/uart.o
 
-.debug_loc      0x0000000000000000       0x26
+.debug_loc
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x26 build/default/production/main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -439,15 +440,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000       0x40
+.debug_ranges   0x0000000000000000       0x38
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x10 build/default/production/Feuchtigkeit.o
- .debug_ranges  0x0000000000000010       0x18 build/default/production/main.o
- .debug_ranges  0x0000000000000028       0x18 build/default/production/uart.o
+ .debug_ranges  0x0000000000000000       0x10 build/default/debug/Feuchtigkeit.o
+ .debug_ranges  0x0000000000000010       0x10 build/default/debug/main.o
+ .debug_ranges  0x0000000000000020       0x18 build/default/debug/uart.o
 
 .debug_macro
  *(.debug_macro)
-OUTPUT(dist/default/production/Pflanzensensor.X.production.elf elf32-avr)
+OUTPUT(dist/default/debug/Pflanzensensor.X.debug.elf elf32-avr)
 LOAD linker stubs
 LOAD data_init
 
@@ -456,91 +457,79 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x40 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
 
-.bss.ADC_8bit_High_Byte
-                0x0000000000800100        0x2
- .bss.ADC_8bit_High_Byte
-                0x0000000000800100        0x2 build/default/production/main.o
-                0x0000000000800100                ADC_8bit_High_Byte
-
-.bss.ADC_8bit_Low_Byte
-                0x0000000000800102        0x2
- .bss.ADC_8bit_Low_Byte
-                0x0000000000800102        0x2 build/default/production/main.o
-                0x0000000000800102                ADC_8bit_Low_Byte
-
-.text.main      0x00000000000000c2       0x44
- .text.main     0x00000000000000c2       0x44 build/default/production/main.o
-                0x00000000000000c2                main
+.text.main      0x00000000000000bc       0x34
+ .text.main     0x00000000000000bc       0x34 build/default/debug/main.o
+                0x00000000000000bc                main
 
 .text.moistInit
-                0x0000000000000106       0x1c
+                0x00000000000000f0       0x1c
  .text.moistInit
-                0x0000000000000106       0x1c build/default/production/Feuchtigkeit.o
-                0x0000000000000106                moistInit
+                0x00000000000000f0       0x1c build/default/debug/Feuchtigkeit.o
+                0x00000000000000f0                moistInit
 
 .text.USART_Init
-                0x0000000000000122       0x18
+                0x000000000000010c       0x18
  .text.USART_Init
-                0x0000000000000122       0x18 build/default/production/uart.o
-                0x0000000000000122                USART_Init
+                0x000000000000010c       0x18 build/default/debug/uart.o
+                0x000000000000010c                USART_Init
 
-.text.exit      0x000000000000013a       0x16
- .text.exit     0x000000000000013a       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x000000000000013a                exit
+.text.exit      0x0000000000000124       0x16
+ .text.exit     0x0000000000000124       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000124                exit
 
 .text.USART_TransmitPolling
-                0x0000000000000150       0x10
+                0x000000000000013a       0x10
  .text.USART_TransmitPolling
-                0x0000000000000150       0x10 build/default/production/uart.o
-                0x0000000000000150                USART_TransmitPolling
+                0x000000000000013a       0x10 build/default/debug/uart.o
+                0x000000000000013a                USART_TransmitPolling
 
-.text           0x0000000000000160        0x4
- .text          0x0000000000000160        0x4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
-                0x0000000000000160                __vector_22
-                0x0000000000000160                __vector_1
-                0x0000000000000160                __vector_24
-                0x0000000000000160                __vector_12
-                0x0000000000000160                __bad_interrupt
-                0x0000000000000160                __vector_6
-                0x0000000000000160                __vector_3
-                0x0000000000000160                __vector_23
-                0x0000000000000160                __vector_25
-                0x0000000000000160                __vector_11
-                0x0000000000000160                __vector_13
-                0x0000000000000160                __vector_17
-                0x0000000000000160                __vector_19
-                0x0000000000000160                __vector_7
-                0x0000000000000160                __vector_5
-                0x0000000000000160                __vector_4
-                0x0000000000000160                __vector_9
-                0x0000000000000160                __vector_2
-                0x0000000000000160                __vector_21
-                0x0000000000000160                __vector_15
-                0x0000000000000160                __vector_8
-                0x0000000000000160                __vector_14
-                0x0000000000000160                __vector_10
-                0x0000000000000160                __vector_16
-                0x0000000000000160                __vector_18
-                0x0000000000000160                __vector_20
+.text           0x000000000000014a        0x4
+ .text          0x000000000000014a        0x4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+                0x000000000000014a                __vector_22
+                0x000000000000014a                __vector_1
+                0x000000000000014a                __vector_24
+                0x000000000000014a                __vector_12
+                0x000000000000014a                __bad_interrupt
+                0x000000000000014a                __vector_6
+                0x000000000000014a                __vector_3
+                0x000000000000014a                __vector_23
+                0x000000000000014a                __vector_25
+                0x000000000000014a                __vector_11
+                0x000000000000014a                __vector_13
+                0x000000000000014a                __vector_17
+                0x000000000000014a                __vector_19
+                0x000000000000014a                __vector_7
+                0x000000000000014a                __vector_5
+                0x000000000000014a                __vector_4
+                0x000000000000014a                __vector_9
+                0x000000000000014a                __vector_2
+                0x000000000000014a                __vector_21
+                0x000000000000014a                __vector_15
+                0x000000000000014a                __vector_8
+                0x000000000000014a                __vector_14
+                0x000000000000014a                __vector_10
+                0x000000000000014a                __vector_16
+                0x000000000000014a                __vector_18
+                0x000000000000014a                __vector_20
 
-.text._Exit     0x0000000000000164        0x4
- .text._Exit    0x0000000000000164        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
-                0x0000000000000164                _Exit
+.text._Exit     0x000000000000014e        0x4
+ .text._Exit    0x000000000000014e        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+                0x000000000000014e                _Exit
 
 .text.__dummy_fini
-                0x0000000000000168        0x2
+                0x0000000000000152        0x2
  .text.__dummy_fini
-                0x0000000000000168        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x0000000000000168                _fini
+                0x0000000000000152        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000152                _fini
 
 .text.__dummy_funcs_on_exit
-                0x000000000000016a        0x2
+                0x0000000000000154        0x2
  .text.__dummy_funcs_on_exit
-                0x000000000000016a        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x000000000000016a                __funcs_on_exit
+                0x0000000000000154        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000154                __funcs_on_exit
 
 .text.__dummy_simulator_exit
-                0x000000000000016c        0x2
+                0x0000000000000156        0x2
  .text.__dummy_simulator_exit
-                0x000000000000016c        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x000000000000016c                __simulator_exit
+                0x0000000000000156        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000156                __simulator_exit

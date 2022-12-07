@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Feuchtigkeit.c main.c uart.c
+SOURCEFILES_QUOTED_IF_SPACED=Feuchtigkeit.c main.c uart.c Ultraschall.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Feuchtigkeit.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/Ultraschall.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Feuchtigkeit.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/Ultraschall.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o
+OBJECTFILES=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/Ultraschall.o
 
 # Source Files
-SOURCEFILES=Feuchtigkeit.c main.c uart.c
+SOURCEFILES=Feuchtigkeit.c main.c uart.c Ultraschall.c
 
 
 
@@ -94,42 +94,54 @@ MP_PROCESSOR_OPTION=ATmega328P
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Feuchtigkeit.o: Feuchtigkeit.c  .generated_files/flags/default/2ee12d1f33338070cba6b6a8b55dc683a9fe8f4d .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+${OBJECTDIR}/Feuchtigkeit.o: Feuchtigkeit.c  .generated_files/flags/default/7adfff49a17d5a3eff4ebce20b9068148fba35e7 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Feuchtigkeit.o.d 
 	@${RM} ${OBJECTDIR}/Feuchtigkeit.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Feuchtigkeit.o.d" -MT "${OBJECTDIR}/Feuchtigkeit.o.d" -MT ${OBJECTDIR}/Feuchtigkeit.o -o ${OBJECTDIR}/Feuchtigkeit.o Feuchtigkeit.c 
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/b99b0247fd8272d081b1a8e244f329d7f66ff3a2 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/87bc4b8af386ef18e94ac1f4b1fb0cb852550e8a .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/main.o.d" -MT "${OBJECTDIR}/main.o.d" -MT ${OBJECTDIR}/main.o -o ${OBJECTDIR}/main.o main.c 
 	
-${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/38180d538c57e7f59727e6d6e7edf82f8c5722d .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/38790111f9439d132c187fddfa25431e3a826431 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/uart.o.d 
 	@${RM} ${OBJECTDIR}/uart.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/uart.o.d" -MT "${OBJECTDIR}/uart.o.d" -MT ${OBJECTDIR}/uart.o -o ${OBJECTDIR}/uart.o uart.c 
 	
+${OBJECTDIR}/Ultraschall.o: Ultraschall.c  .generated_files/flags/default/5ff90bb323f66bbed1b153c86b9b3dd788117d7 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Ultraschall.o.d 
+	@${RM} ${OBJECTDIR}/Ultraschall.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Ultraschall.o.d" -MT "${OBJECTDIR}/Ultraschall.o.d" -MT ${OBJECTDIR}/Ultraschall.o -o ${OBJECTDIR}/Ultraschall.o Ultraschall.c 
+	
 else
-${OBJECTDIR}/Feuchtigkeit.o: Feuchtigkeit.c  .generated_files/flags/default/c9225299862ed499d3cbcada46827aa7b5ab6f75 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+${OBJECTDIR}/Feuchtigkeit.o: Feuchtigkeit.c  .generated_files/flags/default/b339db8ef5bea239c5f932097890d510af7368b8 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Feuchtigkeit.o.d 
 	@${RM} ${OBJECTDIR}/Feuchtigkeit.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Feuchtigkeit.o.d" -MT "${OBJECTDIR}/Feuchtigkeit.o.d" -MT ${OBJECTDIR}/Feuchtigkeit.o -o ${OBJECTDIR}/Feuchtigkeit.o Feuchtigkeit.c 
 	
-${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/d5c43f3420405679a0c77d3491b0aca083f8f958 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/84ae4a1828c8dddc542223e6364c8dd667b6bad8 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/main.o.d" -MT "${OBJECTDIR}/main.o.d" -MT ${OBJECTDIR}/main.o -o ${OBJECTDIR}/main.o main.c 
 	
-${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/d0e743e3c2f1637d839802493cd3c734ff250026 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/2f1c78f6350675d50901874e7bfbe0da05bc6f9 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/uart.o.d 
 	@${RM} ${OBJECTDIR}/uart.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/uart.o.d" -MT "${OBJECTDIR}/uart.o.d" -MT ${OBJECTDIR}/uart.o -o ${OBJECTDIR}/uart.o uart.c 
+	
+${OBJECTDIR}/Ultraschall.o: Ultraschall.c  .generated_files/flags/default/b93d18d30f8ad6fb7984eef2eb04ddac14789de3 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Ultraschall.o.d 
+	@${RM} ${OBJECTDIR}/Ultraschall.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Ultraschall.o.d" -MT "${OBJECTDIR}/Ultraschall.o.d" -MT ${OBJECTDIR}/Ultraschall.o -o ${OBJECTDIR}/Ultraschall.o Ultraschall.c 
 	
 endif
 

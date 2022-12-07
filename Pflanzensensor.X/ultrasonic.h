@@ -28,22 +28,16 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-// This is a guard condition so that contents of this file are not included
-// more than once.  
-#ifndef MOIST_H
-#define	MOIST_H
+#ifndef ULTRASONIC_H
+#define	ULTRASONIC_H
 
-#ifndef F_CPU
-#define F_CPU 16000000UL
-#endif
+#include <xc.h> // include processor files - each processor file is guarded.  
 
-#include <util/delay.h>
-#include <avr/io.h>
+#define TRIGGER PINB4
+#define ECHO PINB5
 
-// Pins and Macros
-#define ANALOGIN PINC1
+#define TRIGGER_ON PORTD |= (1<<PORTB4)
+#define TRIGGER_OFF PORTD &= ~(1<<PORTB4)
 
-#endif	/* MOIST_H */
-
-
+#endif	/* ULTRASONIC_H */
 

@@ -4,7 +4,7 @@
  *
  * Created on 30. November 2022, 11:50
  */
-
+#define F_CPU 16000000UL
 
 #include <xc.h>
 #include "moist.h"
@@ -12,27 +12,29 @@
 #include <util/delay.h>  // Generates a Blocking Delay
 
 
- uint16_t  ADC_8bit_Low_Byte  = 0; // unsigned int 8 bit variable
- uint16_t  ADC_8bit_High_Byte = 0; // unsigned int 8 bit variable
 
-ISR(ADC_vect){
-    ADC_8bit_Low_Byte   = ADCL;   // Read the 8 bit ADCL first,then ADCH
-    ADC_8bit_High_Byte  = ADCH;
-}
+ uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
+ 
+
 
 void main(void) {
     
-    //moistInit();  
+    moist_Init();  
     USART_Init();
-    uint16_t test= 1000;
+    uint16_t test= 200;
 	while (1)
 	{
-        USART_TransmitPolling('A');
-        USART_TransmitPolling(ADC_8bit_High_Byte);
-		USART_TransmitPolling(ADC_8bit_Low_Byte);
-		USART_TransmitPolling('E');
-		USART_TransmitPolling('\n');
+        //ohne Autotrigger funktioniert
+        //ADCSRA |= (1<<ADSC);    //start conversion
+
+        //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
+        //könnten wir auch seltener abfragen, über Timer steuern wann die conversion gestartet wird
+        while(!(ADCSRA & (1<<ADSC))){};
+        
+        //mit Interrupt enable für ADC kommt IRGENDWAS beim Uart an
+        //USART_TransmitPolling(test);
+        
+        USART_TransmitPolling(ADCH);
 		_delay_ms(1000);
 	}
-	return 0;
 }
