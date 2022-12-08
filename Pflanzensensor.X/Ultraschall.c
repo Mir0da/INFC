@@ -24,7 +24,7 @@ void ultrasonic_Init(void) {
 }
 
 
-uint8_t measure(){
+uint8_t us_listen(){
     TRIGGER_ON;
     OCR0A = 20; //Start Timer
     

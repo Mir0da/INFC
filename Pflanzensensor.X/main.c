@@ -22,6 +22,7 @@ void main(void) {
     moist_Init();  
     USART_Init();
     uint16_t test= 200;
+    uint8_t critical;
 	while (1)
 	{
         //ohne Autotrigger funktioniert
@@ -36,5 +37,15 @@ void main(void) {
         
         USART_TransmitPolling(ADCH);
 		_delay_ms(1000);
+        
+        
+        //Prototype programmablauf
+        if(ADCH > critical)
+        {
+            if(us_listen())
+            {
+                //play_sound();
+            }
+        }
 	}
 }
