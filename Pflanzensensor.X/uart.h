@@ -53,5 +53,9 @@
 #define SEVEN_BIT (2<<UCSZ00)
 #define EIGHT_BIT (3<<UCSZ00)
 #define DATA_BIT   EIGHT_BIT  // USART Data Bit Selection
+
+void USART_Init();
+void USART_TransmitPolling(uint8_t DataByte);
+
 #endif	/* UART_H */
 

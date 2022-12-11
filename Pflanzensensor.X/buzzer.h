@@ -33,5 +33,19 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+#define C2 239
+#define D2 213
+#define E2 190
+#define F2 179
+#define G2 159
+#define A2 142
+#define H2 126
+
+
+void buzzer_Init();
+void buzzer_on();
+
+void play_melody();
+
 #endif	/* BUZZER_H */
 

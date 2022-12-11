@@ -9,20 +9,35 @@
 #include <xc.h>
 #include "moist.h"
 #include "uart.h"
+#include "buzzer.h"
 #include <util/delay.h>  // Generates a Blocking Delay
 
 
 
  uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
  
+ ISR(TIMER0_COMPA_vect){
+     
+     volatile uint8_t overflowCounter = 0;
+   
+     if(overflowCounter > 61)
+     {
+         overflowCounter =0;
+         play_melody(); 
+     }
+     
+     overflowCounter++; 
+ }
 
-
-void main(void) {
+int main(void) {
     
     moist_Init();  
     USART_Init();
-    uint16_t test= 200;
+    buzzer_Init();
+    buzzer_on();
+//    uint16_t test= 200;
     uint8_t critical;
+    
 	while (1)
 	{
         //ohne Autotrigger funktioniert
@@ -42,10 +57,11 @@ void main(void) {
         //Prototype programmablauf
         if(ADCH > critical)
         {
-            if(us_listen())
-            {
+            //if(us_listen())
+            //{
                 //play_sound();
-            }
+            //}
         }
 	}
+     return 0;
 }

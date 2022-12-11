@@ -43,6 +43,8 @@
 // Pins and Macros
 #define ANALOGIN PINC1
 
+void moist_Init();
+
 #endif	/* MOIST_H */
 
 

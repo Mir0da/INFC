@@ -39,5 +39,8 @@
 #define TRIGGER_ON PORTD |= (1<<PORTB4)
 #define TRIGGER_OFF PORTD &= ~(1<<PORTB4)
 
+void ultrasonic_Init(void);
+uint8_t us_listen();
+
 #endif	/* ULTRASONIC_H */
 
