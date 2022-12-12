@@ -31,6 +31,10 @@
 #ifndef BUZZER_H
 #define	BUZZER_H
 
+#ifndef F_CPU
+#define F_CPU 16000000UL
+#endif
+
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 #define C2 239

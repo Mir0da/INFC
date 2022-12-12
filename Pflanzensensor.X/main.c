@@ -4,26 +4,27 @@
  *
  * Created on 30. November 2022, 11:50
  */
+#ifndef F_CPU
 #define F_CPU 16000000UL
+#endif
 
 #include <xc.h>
 #include "moist.h"
 #include "uart.h"
 #include "buzzer.h"
 #include <util/delay.h>  // Generates a Blocking Delay
-
-
+#include<avr/interrupt.h>
 
  uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
  
- ISR(TIMER0_COMPA_vect){
+ISR(TIMER0_COMPA_vect){
      
-     volatile uint8_t overflowCounter = 0;
+     static volatile uint8_t overflowCounter = 0;
    
-     if(overflowCounter > 61)
+     if(overflowCounter > 20)
      {
+        play_melody(); 
          overflowCounter =0;
-         play_melody(); 
      }
      
      overflowCounter++; 
@@ -51,7 +52,6 @@ int main(void) {
         //USART_TransmitPolling(test);
         
         USART_TransmitPolling(ADCH);
-		_delay_ms(1000);
         
         
         //Prototype programmablauf
