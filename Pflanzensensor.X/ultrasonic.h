@@ -12,11 +12,11 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define TRIGGER PINB4
-#define ECHO PINB5
+#define TRIGGER PINB0
+#define ECHO PINB4
 
-#define TRIGGER_ON PORTD |= (1<<PORTB4)
-#define TRIGGER_OFF PORTD &= ~(1<<PORTB4)
+#define TRIGGER_ON PORTD |= (1<<PORTB0)
+#define TRIGGER_OFF PORTD &= ~(1<<PORTB0)
 
 void ultrasonic_Init(void);
 uint8_t us_listen();

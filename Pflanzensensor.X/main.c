@@ -14,12 +14,13 @@
 #include "buzzer.h"
 #include "display.h"
 #include "picture.h"
+#include "ultrasonic.h"
 #include <util/delay.h>  // Generates a Blocking Delay
 #include<avr/interrupt.h>
 
 uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
  
-ISR(TIMER0_COMPA_vect){
+ISR(TIMER2_COMPA_vect){
      
      static volatile uint8_t overflowCounter = 0;
    
@@ -36,6 +37,7 @@ int main(void) {
     
     moist_Init();  
     USART_Init();
+    ultrasonic_Init();
     buzzer_Init();
     buzzer_on();
     
@@ -76,9 +78,9 @@ int main(void) {
         //mit Interrupt enable für ADC kommt IRGENDWAS beim Uart an
         //USART_TransmitPolling(test);
         
-        USART_TransmitPolling(ADCH);
+        //USART_TransmitPolling(ADCH);
         
-        
+       // us_listen();
         //Prototype programmablauf
         if(ADCH > critical)
         {
