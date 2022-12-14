@@ -48,6 +48,12 @@ int main(void) {
         0x1204, 0x1304, 0x15AA, 0x167E //Werte für Fenstergröße, xAnfang (0x1267), yAnfang, xEnde, yEnde (0x169D)       
 	};
     
+    for(uint16_t i= 0; i < (176*132); i++)
+    {
+       SPISend8Bit(0x00); // GRÜN 0x07EF
+       SPISend8Bit(0x00); // GRÜN 0x07EF
+    }
+    
     SendCommandSeq(window,6);
     
     sendPic(Bild1);
