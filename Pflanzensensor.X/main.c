@@ -16,7 +16,7 @@
 #include "picture.h"
 #include "ultrasonic.h"
 #include <util/delay.h>  // Generates a Blocking Delay
-#include<avr/interrupt.h>
+#include <avr/interrupt.h>
 
 uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
  
@@ -60,8 +60,8 @@ int main(void) {
     
     for(uint16_t i= 0; i < (166*122); i++)
     {
-       SPISend8Bit(0xFF); // GR�N 0x07EF
-       SPISend8Bit(0xFF); // GR�N 0x07EF
+       SPISend8Bit(0xFF); // WEISS 0x07EF
+       SPISend8Bit(0xFF); // WEISS 0x07EF
     }
     
     //sendPic(Bild1); //funktioniert!
@@ -75,10 +75,10 @@ int main(void) {
 
         //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
         //k�nnten wir auch seltener abfragen, �ber Timer steuern wann die conversion gestartet wird
-        while(!(ADCSRA & (1<<ADSC))){
+       // while(!(ADCSRA & (1<<ADSC))){
         
             
-        };
+        //};
         
         //mit Interrupt enable f�r ADC kommt IRGENDWAS beim Uart an
         //USART_TransmitPolling(test);
@@ -98,11 +98,15 @@ int main(void) {
             //}
         }
         
-        sendPic(Bild1);
         
-        _delay_ms(500);
+        //funktioniert theoretisch
+        //sendPic(Bild1,2301);
         
-        sendPic(Bild1Animated);
+        //_delay_ms(500);
+        
+        //sendPic(Bild1Animated,2085);
+        
+        //_delay_ms(500);
 	}
     return 0;
 }

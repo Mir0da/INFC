@@ -70,13 +70,13 @@ void Display_init(void) {
 	SendCommandSeq(&InitData[12], 23);
 }
 
-void sendPic(const __flash int picture[]){
+void sendPic(const __flash int picture[], int count){
     int wert, wiederholung;
     uint16_t  counter=0;
     uint8_t SendeByte;
     
     
-    while(counter < 2316){
+    while(counter < count){
         wert= picture[counter];
         
         if(wert == picture[counter+1]){

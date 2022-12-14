@@ -13,21 +13,21 @@
 
 #define LED_TOGGLE PORTC ^= (1<<PORTC2)
 
-uint8_t triggerTime;
-uint8_t listenTime;
+static uint8_t triggerTime;
+static uint8_t listenTime;
 
 ISR(TIMER1_COMPA_vect){
 
     if(triggerTime!= 0){
         triggerTime= 0;
         TRIGGER_OFF;  
-        TCCR1B = 0; //Timer off
     } 
     
     if(listenTime!= 0){
         listenTime= 0; 
-        TCCR1B = 0; //Timer off
     } 
+    
+    TCCR1B = 0; //Timer off
     
 }
 
@@ -50,23 +50,23 @@ void ultrasonic_Init(void) {
 
 uint8_t us_listen(){
     
-    uint8_t timerStart;
-    uint8_t timerStop;
-    uint8_t gotEcho;
+    static uint8_t timerStart;
+    static uint8_t timerStop;
+    static uint8_t gotEcho;
     
     TRIGGER_ON;
     triggerTime =1;
-    OCR1A=160;
+    OCR1A=200;
     TCCR1B |= (1<<CS10); //Timer starten min 10탎
     //Trigger Signal in der ISR wieder ausschalten
 
     listenTime = 1;
     gotEcho=0;
-    TCCR1B |= (1<<CS10); //Timer starten 50탎
-    OCR1A=800;
+    TCCR1B |= (1<<CS11); //Timer starten 50탎
+    OCR1A=100;
     //wait for 50탎 if Echo gets set to 0
     while(listenTime != 0){        
-        if(ECHO == 1)
+        if(ECHO != 0)
         {
            timerStart = TCNT1; 
         }
@@ -77,7 +77,10 @@ uint8_t us_listen(){
             gotEcho=1;
             LED_TOGGLE;
         }
+
+        //kommt aus dieser schleife nicht mehr raus??
     }
+    
     if( gotEcho==1){
         //distanceMS = (timerStop -timerStart);
         //distanceCM = distanceMS/58; 

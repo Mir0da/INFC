@@ -44,7 +44,7 @@ void SPI_init(void);
 void SPISend8Bit(uint8_t);
 void SendCommandSeq(const uint16_t * , uint16_t );
 void Display_init(void);
-void sendPic(const __flash int *);
+void sendPic(const __flash int *, int count);
 
 #endif	/* DISPLAY_H */
 
