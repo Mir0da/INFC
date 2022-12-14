@@ -47,21 +47,21 @@ int main(void) {
     
     uint16_t window[] ={
         0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-        0x127E, 0x1505, 0x1305, 0x16AA //Werte für Fenstergröße, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
 	};
     
     for(uint16_t i= 0; i < (176*132); i++)
     {
-       SPISend8Bit(0x00); // GRÜN 0x07EF
-       SPISend8Bit(0x00); // GRÜN 0x07EF
+       SPISend8Bit(0x00); // SCHWARZ 0x0000
+       SPISend8Bit(0x00); // SCHWARZ 0x0000
     }
     
     SendCommandSeq(window,6);
     
     for(uint16_t i= 0; i < (166*122); i++)
     {
-       SPISend8Bit(0xFF); // GRÜN 0x07EF
-       SPISend8Bit(0xFF); // GRÜN 0x07EF
+       SPISend8Bit(0xFF); // GRï¿½N 0x07EF
+       SPISend8Bit(0xFF); // GRï¿½N 0x07EF
     }
     
     //sendPic(Bild1); //funktioniert!
@@ -74,13 +74,13 @@ int main(void) {
         //ADCSRA |= (1<<ADSC);    //start conversion
 
         //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
-        //könnten wir auch seltener abfragen, über Timer steuern wann die conversion gestartet wird
+        //kï¿½nnten wir auch seltener abfragen, ï¿½ber Timer steuern wann die conversion gestartet wird
         while(!(ADCSRA & (1<<ADSC))){
         
             
         };
         
-        //mit Interrupt enable für ADC kommt IRGENDWAS beim Uart an
+        //mit Interrupt enable fï¿½r ADC kommt IRGENDWAS beim Uart an
         //USART_TransmitPolling(test);
         
         //USART_TransmitPolling(ADCH);
@@ -97,6 +97,12 @@ int main(void) {
                 //play_sound();
             //}
         }
+        
+        sendPic(Bild1);
+        
+        _delay_ms(500);
+        
+        sendPic(Bild1Animated);
 	}
     return 0;
 }
