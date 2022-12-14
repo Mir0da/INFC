@@ -45,7 +45,7 @@ int main(void) {
     
     uint16_t window[] ={
         0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-        0x1266, 0x1311, 0x151B, 0x169C //Werte für Fenstergröße, xAnfang (0x1267), yAnfang, xEnde, yEnde (0x169D)       
+        0x1204, 0x1304, 0x15AA, 0x167E //Werte für Fenstergröße, xAnfang (0x1267), yAnfang, xEnde, yEnde (0x169D)       
 	};
     
     SendCommandSeq(window,6);
