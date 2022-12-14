@@ -47,7 +47,7 @@ int main(void) {
     
     uint16_t window[] ={
         0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-        0x1204, 0x1304, 0x15AA, 0x167E //Werte für Fenstergröße, xAnfang (0x1267), yAnfang, xEnde, yEnde (0x169D)       
+        0x127E, 0x1505, 0x1305, 0x16AA //Werte für Fenstergröße, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
 	};
     
     for(uint16_t i= 0; i < (176*132); i++)
@@ -58,9 +58,14 @@ int main(void) {
     
     SendCommandSeq(window,6);
     
-    sendPic(Bild1);
+    for(uint16_t i= 0; i < (166*122); i++)
+    {
+       SPISend8Bit(0xFF); // GRÜN 0x07EF
+       SPISend8Bit(0xFF); // GRÜN 0x07EF
+    }
     
-//    uint16_t test= 200;
+    //sendPic(Bild1); //funktioniert!
+    
     uint8_t critical;
     
 	while (1)
@@ -80,7 +85,10 @@ int main(void) {
         
         //USART_TransmitPolling(ADCH);
         
-       // us_listen();
+        us_listen();
+      
+       
+        
         //Prototype programmablauf
         if(ADCH > critical)
         {

@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include<avr/interrupt.h>
 
+#define LED_TOGGLE PORTC ^= (1<<PORTC2)
+
 uint8_t triggerTime;
 uint8_t listenTime;
 
@@ -33,6 +35,8 @@ void ultrasonic_Init(void) {
     
     DDRB |= (1<<TRIGGER);     //set as output
     DDRB &= ~(1<<ECHO);     //set as input
+    
+    DDRC |= (1<<DDC2); //Test LED
 
     //Timer 1 Controll
     TCCR1A = 0;
@@ -41,7 +45,6 @@ void ultrasonic_Init(void) {
     TCCR1B = 0;
     TIMSK1 |= (1<<OCIE1A); 
     sei();
-//    sys_clock_1();
 }
 
 
@@ -72,6 +75,7 @@ uint8_t us_listen(){
         {
             timerStop = TCNT1;
             gotEcho=1;
+            LED_TOGGLE;
         }
     }
     if( gotEcho==1){
@@ -79,6 +83,7 @@ uint8_t us_listen(){
         //distanceCM = distanceMS/58; 
         //USART_TransmitPolling(distanceCM);
        // return distanceCM;
+        return 1;
     }
     else
     {

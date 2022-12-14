@@ -25,7 +25,7 @@ void buzzer_Init(){
     TCCR0A = 0;
     TCCR0B = 0;
     //Volume
-    OCR0B = 2;
+    OCR0B = 1;
     //Connect OC2B Port
     TCCR0A |= (1<<COM0B1) | (1<<COM0B0);
     
@@ -50,20 +50,20 @@ void buzzer_Init(){
 }
 
 void buzzer_on(){
-    //Presclaer 1/128, start Timer
-    TCCR0B |= (1<<CS22)|(1<<CS20);
+    //Presclaer 1/256, start Timer
+    TCCR0B |= (1<<CS02);
 }
 
 void play_melody() {
     /* Replace with your application code */
     static volatile uint8_t counter = 0;
-    TCCR0B &= ~(1<<CS22);
-    TCCR0B &= ~(1<<CS20);
+    TCCR0B &= ~(1<<CS02);
     OCR0A = melody1[counter];
-    TCCR0B |= (1<<CS22)|(1<<CS20);
+    TCCR0B |= (1<<CS02);
     counter = counter+1; 
     
     if(counter >9){
         counter =0;
     }
+    
 }

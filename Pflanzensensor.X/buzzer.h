@@ -16,13 +16,13 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define C2 239
-#define D2 213
-#define E2 190
-#define F2 179
-#define G2 159
-#define A2 142
-#define H2 126
+#define C2 120
+#define D2 196
+#define E2 95
+#define F2 90
+#define G2 80
+#define A2 71
+#define H2 63
 
 
 void buzzer_Init();

@@ -76,11 +76,11 @@ void sendPic(const __flash int picture[]){
     uint8_t SendeByte;
     
     
-    while(picture[counter] != 0xABCD){
+    while(counter < 2316){
         wert= picture[counter];
         
         if(wert == picture[counter+1]){
-            wiederholung=picture[counter+2]+2;
+            wiederholung=picture[counter+2];
             counter += 3;
         }
         else{
