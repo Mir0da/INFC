@@ -47,18 +47,17 @@ int main(void) {
     
     uint16_t window[] ={
         0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-        0x1204, 0x1304, 0x15AA, 0x167E //Werte für Fenstergröße, xAnfang (0x1267), yAnfang, xEnde, yEnde (0x169D)       
+        0x127E, 0x1505, 0x1305, 0x16AA //Werte für Fenstergröße, xAnfang (0x1267), yAnfang, xEnde, yEnde (0x169D)       
 	};
     
     for(uint16_t i= 0; i < (176*132); i++)
     {
-       SPISend8Bit(0x00); // GRÜN 0x07EF
-       SPISend8Bit(0x00); // GRÜN 0x07EF
+       SPISend8Bit(0x00); // SCHWARZ 0x0000
+       SPISend8Bit(0x00); // SCHWARZ 0x0000
     }
     
     SendCommandSeq(window,6);
     
-    sendPic(Bild1);
     
 //    uint16_t test= 200;
     uint8_t critical;
@@ -89,6 +88,12 @@ int main(void) {
                 //play_sound();
             //}
         }
+        
+        sendPic(Bild1);
+        
+        _delay_ms(500);
+        
+        sendPic(Bild1Animated);
 	}
     return 0;
 }
