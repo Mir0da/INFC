@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Feuchtigkeit.c main.c uart.c Ultraschall.c buzzer.c display.c picture.c
+SOURCEFILES_QUOTED_IF_SPACED=Feuchtigkeit.c main.c uart.c buzzer.c display.c picture.c Ultraschall_Statemachine.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/Ultraschall.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Feuchtigkeit.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/Ultraschall.o.d ${OBJECTDIR}/buzzer.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/picture.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o ${OBJECTDIR}/Ultraschall_Statemachine.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Feuchtigkeit.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/buzzer.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/picture.o.d ${OBJECTDIR}/Ultraschall_Statemachine.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/Ultraschall.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o
+OBJECTFILES=${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/main.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o ${OBJECTDIR}/Ultraschall_Statemachine.o
 
 # Source Files
-SOURCEFILES=Feuchtigkeit.c main.c uart.c Ultraschall.c buzzer.c display.c picture.c
+SOURCEFILES=Feuchtigkeit.c main.c uart.c buzzer.c display.c picture.c Ultraschall_Statemachine.c
 
 
 
@@ -112,12 +112,6 @@ ${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/38790111f9439d132c18
 	@${RM} ${OBJECTDIR}/uart.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/uart.o.d" -MT "${OBJECTDIR}/uart.o.d" -MT ${OBJECTDIR}/uart.o -o ${OBJECTDIR}/uart.o uart.c 
 	
-${OBJECTDIR}/Ultraschall.o: Ultraschall.c  .generated_files/flags/default/5ff90bb323f66bbed1b153c86b9b3dd788117d7 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Ultraschall.o.d 
-	@${RM} ${OBJECTDIR}/Ultraschall.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Ultraschall.o.d" -MT "${OBJECTDIR}/Ultraschall.o.d" -MT ${OBJECTDIR}/Ultraschall.o -o ${OBJECTDIR}/Ultraschall.o Ultraschall.c 
-	
 ${OBJECTDIR}/buzzer.o: buzzer.c  .generated_files/flags/default/1aad556607f804fad9962a020fb4be518867ad7d .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/buzzer.o.d 
@@ -135,6 +129,12 @@ ${OBJECTDIR}/picture.o: picture.c  .generated_files/flags/default/d5924380ba1e96
 	@${RM} ${OBJECTDIR}/picture.o.d 
 	@${RM} ${OBJECTDIR}/picture.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/picture.o.d" -MT "${OBJECTDIR}/picture.o.d" -MT ${OBJECTDIR}/picture.o -o ${OBJECTDIR}/picture.o picture.c 
+	
+${OBJECTDIR}/Ultraschall_Statemachine.o: Ultraschall_Statemachine.c  .generated_files/flags/default/9227c1ebd81de2b10faeed6a77d92a2ca48187d0 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Ultraschall_Statemachine.o.d 
+	@${RM} ${OBJECTDIR}/Ultraschall_Statemachine.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Ultraschall_Statemachine.o.d" -MT "${OBJECTDIR}/Ultraschall_Statemachine.o.d" -MT ${OBJECTDIR}/Ultraschall_Statemachine.o -o ${OBJECTDIR}/Ultraschall_Statemachine.o Ultraschall_Statemachine.c 
 	
 else
 ${OBJECTDIR}/Feuchtigkeit.o: Feuchtigkeit.c  .generated_files/flags/default/b339db8ef5bea239c5f932097890d510af7368b8 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
@@ -155,12 +155,6 @@ ${OBJECTDIR}/uart.o: uart.c  .generated_files/flags/default/2f1c78f6350675d50901
 	@${RM} ${OBJECTDIR}/uart.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/uart.o.d" -MT "${OBJECTDIR}/uart.o.d" -MT ${OBJECTDIR}/uart.o -o ${OBJECTDIR}/uart.o uart.c 
 	
-${OBJECTDIR}/Ultraschall.o: Ultraschall.c  .generated_files/flags/default/b93d18d30f8ad6fb7984eef2eb04ddac14789de3 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Ultraschall.o.d 
-	@${RM} ${OBJECTDIR}/Ultraschall.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Ultraschall.o.d" -MT "${OBJECTDIR}/Ultraschall.o.d" -MT ${OBJECTDIR}/Ultraschall.o -o ${OBJECTDIR}/Ultraschall.o Ultraschall.c 
-	
 ${OBJECTDIR}/buzzer.o: buzzer.c  .generated_files/flags/default/40ee2b9236b49ca312b825f6fcde8488ec6ced2 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/buzzer.o.d 
@@ -178,6 +172,12 @@ ${OBJECTDIR}/picture.o: picture.c  .generated_files/flags/default/199c742c2bd37d
 	@${RM} ${OBJECTDIR}/picture.o.d 
 	@${RM} ${OBJECTDIR}/picture.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/picture.o.d" -MT "${OBJECTDIR}/picture.o.d" -MT ${OBJECTDIR}/picture.o -o ${OBJECTDIR}/picture.o picture.c 
+	
+${OBJECTDIR}/Ultraschall_Statemachine.o: Ultraschall_Statemachine.c  .generated_files/flags/default/c0bc8b446324a2ec56608f8ca26e6fb892fefb5f .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/Ultraschall_Statemachine.o.d 
+	@${RM} ${OBJECTDIR}/Ultraschall_Statemachine.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/Ultraschall_Statemachine.o.d" -MT "${OBJECTDIR}/Ultraschall_Statemachine.o.d" -MT ${OBJECTDIR}/Ultraschall_Statemachine.o -o ${OBJECTDIR}/Ultraschall_Statemachine.o Ultraschall_Statemachine.c 
 	
 endif
 

@@ -12,23 +12,27 @@
 #include<avr/interrupt.h>
 
 #define LED_TOGGLE PORTC ^= (1<<PORTC2)
+#define LED_ON PORTC |= (1<<PORTC2)
+#define LED_OFF PORTC &= ~(1<<PORTC2)
 
-static uint8_t triggerTime;
-static uint8_t listenTime;
+static volatile uint8_t triggerTime;
+static volatile uint8_t listenTime;
 
 ISR(TIMER1_COMPA_vect){
-
+    
     if(triggerTime!= 0){
-        triggerTime= 0;
         TRIGGER_OFF;  
+        triggerTime=0;
     } 
     
     if(listenTime!= 0){
-        listenTime= 0; 
+        listenTime=0;
     } 
-    
+
+    TCCR1B &= ~(1<<CS10);
+    TCCR1B &= ~(1<<CS11);
+    TCCR1B &= ~(1<<CS12);
     TCCR1B = 0; //Timer off
-    
 }
 
 void ultrasonic_Init(void) {
@@ -45,51 +49,70 @@ void ultrasonic_Init(void) {
     TCCR1B = 0;
     TIMSK1 |= (1<<OCIE1A); 
     sei();
+    
+    TRIGGER_OFF;
+    LED_OFF;
 }
 
 
 uint8_t us_listen(){
     
-    static uint8_t timerStart;
-    static uint8_t timerStop;
+    static uint8_t timerStart=0;
+    static uint8_t timerStop=0;
     static uint8_t gotEcho;
+    static uint16_t distanceMS;
+    static uint16_t distanceCM;
     
-    TRIGGER_ON;
     triggerTime =1;
+    TRIGGER_ON;
     OCR1A=200;
     TCCR1B |= (1<<CS10); //Timer starten min 10탎
     //Trigger Signal in der ISR wieder ausschalten
 
+    while(triggerTime !=0){}
+    
     listenTime = 1;
     gotEcho=0;
-    TCCR1B |= (1<<CS11); //Timer starten 50탎
+    TCNT1 = 0; //Reset Timer value to measure distance
     OCR1A=100;
-    //wait for 50탎 if Echo gets set to 0
-    while(listenTime != 0){        
-        if(ECHO != 0)
-        {
-           timerStart = TCNT1; 
-        }
-
-        if(ECHO == 0)
-        {
-            timerStop = TCNT1;
-            gotEcho=1;
-            LED_TOGGLE;
-        }
-
-        //kommt aus dieser schleife nicht mehr raus??
-    }
+    TCCR1B |= (1<<CS11); //Timer starten 50탎
     
+    while (ECHO_IN == 0){} //wait till ECHO Signal gets to 1
+    
+    timerStart = TCNT1;
+    //wait for 50탎 if Echo gets a response
+    while(listenTime != 0){ 
+        if(ECHO_IN == 0 && gotEcho ==0) //Echo is 1 until it gets a Reflected Signal
+        {
+            timerStop = TCNT1;      //Save Timerticks to calculate disctance
+            gotEcho=1;
+        }
+    }
+
     if( gotEcho==1){
-        //distanceMS = (timerStop -timerStart);
-        //distanceCM = distanceMS/58; 
-        //USART_TransmitPolling(distanceCM);
+        //distanceMS = 1/((16000000/8)/(timerStop - timerStart)) * 1000; //Timer ticks in ms
+        distanceMS = (timerStop - timerStart)/2000;
+        distanceCM = distanceMS*17000; 
+        USART_TransmitPolling((timerStop - timerStart));
        // return distanceCM;
+        
+        if (distanceCM < 20)
+        {
+            LED_ON;
+        }
+        else
+        {
+            LED_OFF;
+        }
+        
+        timerStart=0;
+        timerStop=0;
         return 1;
     }
     else
     {
+        timerStart=0;
+        timerStop=0;
         return 0;
     }
     return 0;

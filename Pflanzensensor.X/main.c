@@ -37,7 +37,7 @@ int main(void) {
     
     moist_Init();  
     USART_Init();
-    ultrasonic_Init();
+    ultrasonic_Init2();
     buzzer_Init();
     buzzer_on();
     
@@ -85,7 +85,7 @@ int main(void) {
         
         //USART_TransmitPolling(ADCH);
         
-        us_listen();
+        ultrasonic_state_machine();
       
        
         

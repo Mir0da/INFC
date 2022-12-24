@@ -21,10 +21,10 @@
       <itemPath>Feuchtigkeit.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>uart.c</itemPath>
-      <itemPath>Ultraschall.c</itemPath>
       <itemPath>buzzer.c</itemPath>
       <itemPath>display.c</itemPath>
       <itemPath>picture.c</itemPath>
+      <itemPath>Ultraschall_Statemachine.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
