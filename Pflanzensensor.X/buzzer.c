@@ -13,7 +13,20 @@
 #include<avr/interrupt.h>
 
 uint8_t tones[7] = {C2,D2,E2,F2,G2,A2,H2};
-uint8_t melody1[10] = {E2,0,E2,0,E2,C2,G2,0,0,0};
+uint8_t melody1[10] = {10,E2,0,E2,0,E2,C2,G2,0,0,0};
+
+ISR(TIMER2_COMPA_vect){
+     
+     static volatile uint8_t overflowCounter = 0;
+   
+     if(overflowCounter > 20)
+     {
+        play_melody(); 
+         overflowCounter =0;
+     }
+     
+     overflowCounter++; 
+}
 
 
 void buzzer_Init(){
@@ -38,7 +51,6 @@ void buzzer_Init(){
     TCCR2A |= (1<<WGM21);   //CTC Mode
     
     TCCR2B =0;
-    TCCR2B |= (1<<CS22)|(1<<CS21)|(1<<CS20); //Prescaler 1024
     TCCR2B |= (1<<FOC2A); // force output compare match
     OCR2A = 250; //16ms -> ca61 overflows für 1sec
     
@@ -49,21 +61,29 @@ void buzzer_Init(){
     sei();
 }
 
-void buzzer_on(){
+void play_sound(){
+    
+    //start both timers
     //Presclaer 1/256, start Timer
     TCCR0B |= (1<<CS02);
+    
+    TCCR2B |= (1<<CS22)|(1<<CS21)|(1<<CS20); //Prescaler 1024
 }
 
 void play_melody() {
     /* Replace with your application code */
-    static volatile uint8_t counter = 0;
+    static volatile uint8_t counter = 1;
     TCCR0B &= ~(1<<CS02);
     OCR0A = melody1[counter];
     TCCR0B |= (1<<CS02);
-    counter = counter+1; 
+    counter++; 
     
-    if(counter >9){
-        counter =0;
+    if(counter > melody1[0]-1){
+        //Turn both timers off
+        TCCR0B &= ~(1<<CS02);
+        TCCR2B &= ~(1<<CS22);
+        TCCR2B &= ~(1<<CS21);
+        TCCR2B &= ~(1<<CS20);
     }
     
 }

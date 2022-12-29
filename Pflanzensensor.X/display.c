@@ -96,3 +96,22 @@ void sendPic(const __flash int picture[], int count){
         }  
     }   
 }
+
+void displayPlant(uint8_t advalue){
+    if(advalue > 500){                      //WELL
+        sendPic(Bild1,2301);
+        _delay_ms(500);      //animated
+        sendPic(Bild1Animated,2085);
+    }
+    
+    if(advalue > 150 && advalue < 300){     //MEDIOCRE
+        sendPic(Bild1,2301);
+        _delay_ms(500);
+        sendPic(Bild1Animated,2085);
+    }
+    if(advalue < 150){                      //BAD
+        sendPic(Bild1,2301);
+        _delay_ms(500);
+        sendPic(Bild1Animated,2085);
+    }
+}

@@ -18,6 +18,8 @@
 static volatile uint8_t triggerTime;
 static volatile uint8_t listenTime;
 
+uint16_t timerOverflow;
+
 ISR(TIMER1_COMPA_vect){
     
     if(triggerTime!= 0){
@@ -26,6 +28,7 @@ ISR(TIMER1_COMPA_vect){
     } 
     
     if(listenTime!= 0){
+        timerOverflow++;
         listenTime=0;
     } 
 
@@ -59,9 +62,8 @@ uint8_t us_listen(){
     
     static uint8_t timerStart=0;
     static uint8_t timerStop=0;
-    static uint8_t gotEcho;
-    static uint16_t distanceMS;
-    static uint16_t distanceCM;
+    static uint8_t count;
+    static uint16_t distance;
     
     triggerTime =1;
     TRIGGER_ON;

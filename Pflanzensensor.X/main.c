@@ -19,27 +19,45 @@
 #include <avr/interrupt.h>
 
 uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
+
+ volatile uint8_t sleepFlag=0;
  
-ISR(TIMER2_COMPA_vect){
-     
-     static volatile uint8_t overflowCounter = 0;
-   
-     if(overflowCounter > 20)
-     {
-        play_melody(); 
-         overflowCounter =0;
-     }
-     
-     overflowCounter++; 
+void startSleepTimer(){
+    //reset everything
+    TCCR1A = 0;
+    TCCR1B = 0;
+    TIMSK1 = 0;
+    TIFR1 = 0;
+    
+    //configure Timer for ~5min
+    TCCR1A = 0;
+    TCCR1B |= (1<<WGM12);
+    TCCR1B |= (1<<CS12) | (1<<CS10);
+    TCCR1C |= (1<<FOC1A);
+    TIMSK1 |= (1<<OCIE1A);
+    OCR1A= 4718592;
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+	static volatile uint8_t count = 0;
+    count++;
+    if(count > 72)
+    {
+        //stop timer
+        TCCR1B &= ~(1<<CS12); 
+        TCCR1B &= ~(1<<CS10);
+        sleepFlag=0;
+        count = 0;
+    }
 }
 
 int main(void) {
-    
+   
+    sonic_Init();
     moist_Init();  
     USART_Init();
-    ultrasonic_Init2();
     buzzer_Init();
-    buzzer_on();
     
     // Display
     SPI_init();
@@ -67,9 +85,11 @@ int main(void) {
     //sendPic(Bild1); //funktioniert!
     
     uint8_t critical;
-    
+	
 	while (1)
 	{
+        displayPlant(ADCH);   
+        
         //ohne Autotrigger funktioniert
         //ADCSRA |= (1<<ADSC);    //start conversion
 
@@ -77,36 +97,25 @@ int main(void) {
         //k�nnten wir auch seltener abfragen, �ber Timer steuern wann die conversion gestartet wird
        // while(!(ADCSRA & (1<<ADSC))){
         
-            
         //};
         
         //mit Interrupt enable f�r ADC kommt IRGENDWAS beim Uart an
         //USART_TransmitPolling(test);
-        
         //USART_TransmitPolling(ADCH);
         
-        ultrasonic_state_machine();
-      
-       
-        
         //Prototype programmablauf
-        if(ADCH > critical)
-        {
-            //if(us_listen())
-            //{
-                //play_sound();
-            //}
+        
+        if(sleepFlag == 0){
+            if(ADCH > critical)
+            {
+                if(sonic_burst())
+                {
+                    play_sound();
+                    sleepFlag = 1;
+                    startSleepTimer();
+                }
+            }
         }
-        
-        
-        //funktioniert theoretisch
-        //sendPic(Bild1,2301);
-        
-        //_delay_ms(500);
-        
-        //sendPic(Bild1Animated,2085);
-        
-        //_delay_ms(500);
 	}
     return 0;
 }

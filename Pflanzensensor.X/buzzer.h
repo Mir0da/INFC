@@ -26,9 +26,9 @@
 
 
 void buzzer_Init();
-void buzzer_on();
+void play_sound();
 
-void play_melody();
+void play_meldy();
 
 #endif	/* BUZZER_H */
 

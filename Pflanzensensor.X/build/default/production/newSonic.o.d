@@ -1,5 +1,5 @@
-build/default/production/Ultraschall.o.d \
- build/default/production/Ultraschall.o: Ultraschall.c \
+build/default/production/newSonic.o.d build/default/production/newSonic.o: \
+ newSonic.c \
  c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
@@ -16,7 +16,9 @@ build/default/production/Ultraschall.o.d \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
  ultrasonic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\xc.h:
@@ -51,6 +53,10 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
 ultrasonic.h:
 
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\stdio.h:
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
+
+c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h:
