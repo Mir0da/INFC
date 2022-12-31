@@ -1,6 +1,7 @@
 /* Based on code by Michael Behrens */
 
 #include "display.h"
+#include "picture.h"
 
 void SPI_init(){
 	//set CS, MOSI and SCK to output:

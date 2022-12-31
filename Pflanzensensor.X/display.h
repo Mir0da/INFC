@@ -21,6 +21,7 @@
 #define SPI_DDR DDRB
 #define CS      PINB2
 #define MOSI    PINB3
+//define MISO   PINB4 -> NOT USABLE for other purposes if SPI is aktive!
 #define SCK     PINB5
 #define D_C		PIND2		//display: Data/Command
 #define Reset	PIND3		//display: Reset
@@ -45,6 +46,7 @@ void SPISend8Bit(uint8_t);
 void SendCommandSeq(const uint16_t * , uint16_t );
 void Display_init(void);
 void sendPic(const __flash int *, int count);
+void displayPlant(uint8_t advalue);
 
 #endif	/* DISPLAY_H */
 

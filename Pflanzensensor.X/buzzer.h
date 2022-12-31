@@ -16,19 +16,23 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define C2 120
-#define D2 196
+#define H3 127
+#define C2 120  //freq  523
+#define D2 106
 #define E2 95
 #define F2 90
 #define G2 80
 #define A2 71
 #define H2 63
+#define C3 60
 
+// Pins and Macros
+#define BUZZER PIND5
 
 void buzzer_Init();
-void play_sound();
+void play_sound(uint8_t melodyPicker);
 
-void play_meldy();
+void play_melody();
 
 #endif	/* BUZZER_H */
 

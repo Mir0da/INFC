@@ -13,32 +13,31 @@
 #include "ultrasonic.h"
 #include <util/delay.h>  // Generates a Blocking Delay
 #include <avr/interrupt.h>
-#define LED_ON PORTC |= (1<<PORTC2)
-#define LED_OFF PORTC &= ~(1<<PORTC2)
  
 int TimerOverflow = 0;
-volatile uint8_t triggerFlag;
-
-ISR(TIMER1_OVF_vect)
-{
-	TimerOverflow++;	/* Increment Timer Overflow count */
-}
+volatile uint8_t triggerFlag=0;
 
 ISR(TIMER1_COMPA_vect)
 {
     triggerFlag = 0;
 }
 
+
+ISR(TIMER1_OVF_vect)
+{
+	TimerOverflow++;	/* Increment Timer Overflow count */
+}
+
+
 void sonic_Init(){
-    DDRB |= (1<<TRIGGER);     //set as output
+    
+    DDRC |= (1<<TRIGGER);     //set as output
     DDRB &= ~(1<<ECHO);     //set as input
     PORTB |= (1<<PORTB0); //enable pull-up 
     
     DDRC |= (1<<DDC2); //Test LED
-	
-	
-	sei();			/* Enable global interrupt */
-	
+
+	sei();			/* Enable global interrupt */	
 }
 
 void initTimer_1(){
@@ -53,6 +52,7 @@ void initTimer_1(){
     TCCR1C |= (1<<FOC1A);
     TIMSK1 |= (1<<OCIE1A);
     OCR1A= 192;
+    sei();
 }
 
 void initTimer_2(){
@@ -71,7 +71,7 @@ void initTimer_2(){
 	TIFR1 = 1<<TOV1;	/* Clear Timer Overflow flag */
 }
 
-void sonic_burst(void) {
+uint8_t sonic_burst(void) {
     
     static long count;
 	static double distance;
@@ -98,12 +98,14 @@ void sonic_burst(void) {
     count = ICR1 + (65535 * TimerOverflow);	/* Take count */
     /* 16MHz Timer freq, sound speed =343 m/s */
     distance = (double)count / 932.94;
-    if (distance < 10)
+   
+    
+    if (distance < 10)  //vll entprellen? 
     {
-        LED_ON;
+        return 1;
     }
     else
     {
-        LED_OFF;
+        return 0;
     }
 }
