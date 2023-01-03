@@ -44,8 +44,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 build/default/production/main.o
  .text.startSleepTimer
                 0x0000000000000000       0x50 build/default/production/main.o
- .text.button_Init
-                0x0000000000000000        0xa build/default/production/main.o
  .bss.melodyPicker
                 0x0000000000000000        0x1 build/default/production/main.o
  .text          0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
@@ -54,43 +52,44 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/buzzer.o
  .data          0x0000000000000000        0x0 build/default/production/buzzer.o
  .bss           0x0000000000000000        0x0 build/default/production/buzzer.o
- .text.buzzer_Init
-                0x0000000000000000       0x40 build/default/production/buzzer.o
  .text.play_sound
                 0x0000000000000000       0x16 build/default/production/buzzer.o
  .text          0x0000000000000000        0x0 build/default/production/display.o
  .data          0x0000000000000000        0x0 build/default/production/display.o
  .bss           0x0000000000000000        0x0 build/default/production/display.o
- .text.SPI_init
-                0x0000000000000000        0xc build/default/production/display.o
- .text.SPISend8Bit
-                0x0000000000000000        0xe build/default/production/display.o
- .text.SendCommandSeq
-                0x0000000000000000       0x64 build/default/production/display.o
- .rodata        0x0000000000000000       0x52 build/default/production/display.o
- .text.Display_init
-                0x0000000000000000       0xf8 build/default/production/display.o
  .text.sendPic  0x0000000000000000       0xb6 build/default/production/display.o
  .text.displayPlant
                 0x0000000000000000       0x64 build/default/production/display.o
- .debug_info    0x0000000000000000      0x7c1 build/default/production/display.o
- .debug_abbrev  0x0000000000000000      0x190 build/default/production/display.o
- .debug_loc     0x0000000000000000      0x495 build/default/production/display.o
- .debug_aranges
-                0x0000000000000000       0x48 build/default/production/display.o
- .debug_ranges  0x0000000000000000       0x50 build/default/production/display.o
- .debug_line    0x0000000000000000      0x2c9 build/default/production/display.o
- .debug_str     0x0000000000000000        0xa build/default/production/display.o
- .comment       0x0000000000000000       0x30 build/default/production/display.o
- .debug_frame   0x0000000000000000       0xf8 build/default/production/display.o
+ .data.melody3window
+                0x0000000000000000        0xc build/default/production/display.o
+ .data.melody2window
+                0x0000000000000000        0xc build/default/production/display.o
+ .data.melody1window
+                0x0000000000000000        0xc build/default/production/display.o
+ .data.sleepwindow
+                0x0000000000000000        0xc build/default/production/display.o
+ .data.statuswindow
+                0x0000000000000000        0xc build/default/production/display.o
+ .data.plantwindow
+                0x0000000000000000        0xc build/default/production/display.o
  .text          0x0000000000000000        0x0 build/default/production/picture.o
  .data          0x0000000000000000        0x0 build/default/production/picture.o
  .bss           0x0000000000000000        0x0 build/default/production/picture.o
+ .progmem0.data.Status
+                0x0000000000000000      0x6f6 build/default/production/picture.o
+ .progmem0.data.Bild3Animated
+                0x0000000000000000      0xee8 build/default/production/picture.o
+ .progmem0.data.Bild3
+                0x0000000000000000      0xf74 build/default/production/picture.o
+ .progmem0.data.Bild2Animated
+                0x0000000000000000      0xe9a build/default/production/picture.o
+ .progmem0.data.Bild2
+                0x0000000000000000      0xf12 build/default/production/picture.o
  .progmem0.data.Bild1Animated
-                0x0000000000000000     0x104a build/default/production/picture.o
+                0x0000000000000000      0xfd2 build/default/production/picture.o
  .progmem0.data.Bild1
-                0x0000000000000000     0x11fa build/default/production/picture.o
- .debug_info    0x0000000000000000      0x1de build/default/production/picture.o
+                0x0000000000000000     0x104a build/default/production/picture.o
+ .debug_info    0x0000000000000000      0x258 build/default/production/picture.o
  .debug_abbrev  0x0000000000000000       0x31 build/default/production/picture.o
  .debug_aranges
                 0x0000000000000000       0x18 build/default/production/picture.o
@@ -103,8 +102,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/newSonic.o
  .data          0x0000000000000000        0x0 build/default/production/newSonic.o
  .bss           0x0000000000000000        0x0 build/default/production/newSonic.o
- .text.sonic_Init
-                0x0000000000000000        0xc build/default/production/newSonic.o
  .text.initTimer_1
                 0x0000000000000000       0x3e build/default/production/newSonic.o
  .text.initTimer_2
@@ -242,11 +239,8 @@ Discarded input sections
                 0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
  .text.libgcc.div
                 0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
- .text.libgcc   0x0000000000000000       0x10 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
  .text.libgcc.prologue
                 0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
  .stack.descriptors
                 0x0000000000000000       0x17 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
  .text.libgcc.builtins
@@ -423,7 +417,6 @@ END GROUP
  *(.dinit)
  .dinit         0x0000000000000068        0xc data_init
                 0x0000000000000074                . = ALIGN (0x2)
- *fill*         0x0000000000000074        0x0 
                 0x0000000000000074                __trampolines_start = .
  *(.trampolines)
  .trampolines   0x0000000000000074        0x0 linker stubs
@@ -561,10 +554,18 @@ END GROUP
                                          0x30 (size before relaxing)
  .comment       0x000000000000002f       0x30 build/default/production/Feuchtigkeit.o
  .comment       0x000000000000002f       0x30 build/default/production/buzzer.o
+ .comment       0x000000000000002f       0x30 build/default/production/display.o
  .comment       0x000000000000002f       0x30 build/default/production/uart.o
  .comment       0x000000000000002f       0x30 build/default/production/newSonic.o
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+
+.stack.descriptors.hdr
+                0x0000000000000000       0x1c
+ .stack.descriptors.hdr
+                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
+ .stack.descriptors.hdr
+                0x000000000000000e        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
 
 .note.GNU-stack
                 0x0000000000000000        0x0
@@ -572,11 +573,6 @@ END GROUP
                 0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
  .note.GNU-stack
                 0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
-
-.stack.descriptors.hdr
-                0x0000000000000000        0xe
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -593,7 +589,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x100
+.debug_aranges  0x0000000000000000      0x148
  *(.debug_aranges)
  .debug_aranges
                 0x0000000000000000       0x38 build/default/production/main.o
@@ -602,60 +598,68 @@ END GROUP
  .debug_aranges
                 0x0000000000000058       0x38 build/default/production/buzzer.o
  .debug_aranges
-                0x0000000000000090       0x28 build/default/production/uart.o
+                0x0000000000000090       0x48 build/default/production/display.o
  .debug_aranges
-                0x00000000000000b8       0x48 build/default/production/newSonic.o
+                0x00000000000000d8       0x28 build/default/production/uart.o
+ .debug_aranges
+                0x0000000000000100       0x48 build/default/production/newSonic.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1611
+.debug_info     0x0000000000000000     0x1fa1
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x5f4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_info    0x00000000000005f4      0x3a1 build/default/production/main.o
- .debug_info    0x0000000000000995      0x269 build/default/production/Feuchtigkeit.o
- .debug_info    0x0000000000000bfe      0x41a build/default/production/buzzer.o
- .debug_info    0x0000000000001018      0x287 build/default/production/uart.o
- .debug_info    0x000000000000129f      0x372 build/default/production/newSonic.o
+ .debug_info    0x00000000000005f4      0x4bd build/default/production/main.o
+ .debug_info    0x0000000000000ab1      0x269 build/default/production/Feuchtigkeit.o
+ .debug_info    0x0000000000000d1a      0x41a build/default/production/buzzer.o
+ .debug_info    0x0000000000001134      0x874 build/default/production/display.o
+ .debug_info    0x00000000000019a8      0x287 build/default/production/uart.o
+ .debug_info    0x0000000000001c2f      0x372 build/default/production/newSonic.o
 
-.debug_abbrev   0x0000000000000000      0x91e
+.debug_abbrev   0x0000000000000000      0xb3d
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x5a2 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_abbrev  0x00000000000005a2       0xe9 build/default/production/main.o
- .debug_abbrev  0x000000000000068b       0x44 build/default/production/Feuchtigkeit.o
- .debug_abbrev  0x00000000000006cf      0x13c build/default/production/buzzer.o
- .debug_abbrev  0x000000000000080b       0x6b build/default/production/uart.o
- .debug_abbrev  0x0000000000000876       0xa8 build/default/production/newSonic.o
+ .debug_abbrev  0x00000000000005a2      0x167 build/default/production/main.o
+ .debug_abbrev  0x0000000000000709       0x44 build/default/production/Feuchtigkeit.o
+ .debug_abbrev  0x000000000000074d      0x13c build/default/production/buzzer.o
+ .debug_abbrev  0x0000000000000889      0x1a1 build/default/production/display.o
+ .debug_abbrev  0x0000000000000a2a       0x6b build/default/production/uart.o
+ .debug_abbrev  0x0000000000000a95       0xa8 build/default/production/newSonic.o
 
-.debug_line     0x0000000000000000      0x804
+.debug_line     0x0000000000000000      0xb90
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x137 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_line    0x0000000000000137      0x1d0 build/default/production/main.o
- .debug_line    0x0000000000000307       0xa2 build/default/production/Feuchtigkeit.o
- .debug_line    0x00000000000003a9      0x1b4 build/default/production/buzzer.o
- .debug_line    0x000000000000055d       0xbc build/default/production/uart.o
- .debug_line    0x0000000000000619      0x1eb build/default/production/newSonic.o
+ .debug_line    0x0000000000000137      0x269 build/default/production/main.o
+ .debug_line    0x00000000000003a0       0xcc build/default/production/Feuchtigkeit.o
+ .debug_line    0x000000000000046c      0x1b4 build/default/production/buzzer.o
+ .debug_line    0x0000000000000620      0x2c9 build/default/production/display.o
+ .debug_line    0x00000000000008e9       0xbc build/default/production/uart.o
+ .debug_line    0x00000000000009a5      0x1eb build/default/production/newSonic.o
 
-.debug_frame    0x0000000000000000      0x1e8
+.debug_frame    0x0000000000000000      0x2e0
  *(.debug_frame)
  .debug_frame   0x0000000000000000       0x6c build/default/production/main.o
  .debug_frame   0x000000000000006c       0x24 build/default/production/Feuchtigkeit.o
  .debug_frame   0x0000000000000090       0x9c build/default/production/buzzer.o
- .debug_frame   0x000000000000012c       0x34 build/default/production/uart.o
- .debug_frame   0x0000000000000160       0x88 build/default/production/newSonic.o
+ .debug_frame   0x000000000000012c       0xf8 build/default/production/display.o
+ .debug_frame   0x0000000000000224       0x34 build/default/production/uart.o
+ .debug_frame   0x0000000000000258       0x88 build/default/production/newSonic.o
 
-.debug_str      0x0000000000000000      0x234
+.debug_str      0x0000000000000000      0x26b
  *(.debug_str)
  .debug_str     0x0000000000000000      0x208 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_str     0x0000000000000208       0x2c build/default/production/main.o
- .debug_str     0x0000000000000234        0x0 build/default/production/Feuchtigkeit.o
- .debug_str     0x0000000000000234        0x0 build/default/production/buzzer.o
- .debug_str     0x0000000000000234        0x0 build/default/production/uart.o
- .debug_str     0x0000000000000234        0x0 build/default/production/newSonic.o
+ .debug_str     0x0000000000000208       0x59 build/default/production/main.o
+ .debug_str     0x0000000000000261        0x0 build/default/production/Feuchtigkeit.o
+ .debug_str     0x0000000000000261        0x0 build/default/production/buzzer.o
+ .debug_str     0x0000000000000261        0xa build/default/production/display.o
+ .debug_str     0x000000000000026b        0x0 build/default/production/uart.o
+ .debug_str     0x000000000000026b        0x0 build/default/production/newSonic.o
 
-.debug_loc      0x0000000000000000       0x76
+.debug_loc      0x0000000000000000      0x50b
  *(.debug_loc)
  .debug_loc     0x0000000000000000       0x76 build/default/production/buzzer.o
+ .debug_loc     0x0000000000000076      0x495 build/default/production/display.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -675,13 +679,14 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000       0xb0
+.debug_ranges   0x0000000000000000      0x100
  *(.debug_ranges)
  .debug_ranges  0x0000000000000000       0x28 build/default/production/main.o
  .debug_ranges  0x0000000000000028       0x10 build/default/production/Feuchtigkeit.o
  .debug_ranges  0x0000000000000038       0x28 build/default/production/buzzer.o
- .debug_ranges  0x0000000000000060       0x18 build/default/production/uart.o
- .debug_ranges  0x0000000000000078       0x38 build/default/production/newSonic.o
+ .debug_ranges  0x0000000000000060       0x50 build/default/production/display.o
+ .debug_ranges  0x00000000000000b0       0x18 build/default/production/uart.o
+ .debug_ranges  0x00000000000000c8       0x38 build/default/production/newSonic.o
 
 .debug_macro
  *(.debug_macro)
@@ -694,155 +699,203 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x40 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
 
-.bss.count.1981
-                0x0000000000800120        0x1
- .bss.count.1981
-                0x0000000000800120        0x1 build/default/production/main.o
+.bss.count.1979
+                0x0000000000800172        0x1
+ .bss.count.1979
+                0x0000000000800172        0x1 build/default/production/main.o
 
 .bss.sleepLongFlag
-                0x0000000000800121        0x1
+                0x0000000000800173        0x1
  .bss.sleepLongFlag
-                0x0000000000800121        0x1 build/default/production/main.o
-                0x0000000000800121                sleepLongFlag
+                0x0000000000800173        0x1 build/default/production/main.o
+                0x0000000000800173                sleepLongFlag
 
-.bss.sleepFlag  0x0000000000800122        0x1
+.bss.sleepFlag  0x0000000000800174        0x1
  .bss.sleepFlag
-                0x0000000000800122        0x1 build/default/production/main.o
-                0x0000000000800122                sleepFlag
+                0x0000000000800174        0x1 build/default/production/main.o
+                0x0000000000800174                sleepFlag
 
 .bss.counter.1963
-                0x0000000000800123        0x1
+                0x0000000000800175        0x1
  .bss.counter.1963
-                0x0000000000800123        0x1 build/default/production/buzzer.o
+                0x0000000000800175        0x1 build/default/production/buzzer.o
 
 .bss.overflowCounter.1955
-                0x0000000000800124        0x1
+                0x0000000000800176        0x1
  .bss.overflowCounter.1955
-                0x0000000000800124        0x1 build/default/production/buzzer.o
+                0x0000000000800176        0x1 build/default/production/buzzer.o
 
 .bss.melodyPick
-                0x0000000000800125        0x1
+                0x0000000000800177        0x1
  .bss.melodyPick
-                0x0000000000800125        0x1 build/default/production/buzzer.o
-                0x0000000000800125                melodyPick
+                0x0000000000800177        0x1 build/default/production/buzzer.o
+                0x0000000000800177                melodyPick
 
 .bss.triggerFlag
-                0x0000000000800126        0x1
+                0x0000000000800178        0x1
  .bss.triggerFlag
-                0x0000000000800126        0x1 build/default/production/newSonic.o
-                0x0000000000800126                triggerFlag
+                0x0000000000800178        0x1 build/default/production/newSonic.o
+                0x0000000000800178                triggerFlag
 
 .bss.TimerOverflow
-                0x000000000080011e        0x2
+                0x0000000000800170        0x2
  .bss.TimerOverflow
-                0x000000000080011e        0x2 build/default/production/newSonic.o
-                0x000000000080011e                TimerOverflow
+                0x0000000000800170        0x2 build/default/production/newSonic.o
+                0x0000000000800170                TimerOverflow
+
+.text.Display_init
+                0x00000000000000c8       0xf8
+ .text.Display_init
+                0x00000000000000c8       0xf8 build/default/production/display.o
+                0x00000000000000c8                Display_init
 
 .text.__vector_12
-                0x00000000000000c8       0x7e
+                0x00000000000001c0       0x7e
  .text.__vector_12
-                0x00000000000000c8       0x7e build/default/production/main.o
-                0x00000000000000c8                __vector_12
+                0x00000000000001c0       0x7e build/default/production/main.o
+                0x00000000000001c0                __vector_12
 
 .text.play_melody
-                0x0000000000000146       0x78
+                0x000000000000023e       0x78
  .text.play_melody
-                0x0000000000000146       0x78 build/default/production/buzzer.o
-                0x0000000000000146                play_melody
+                0x000000000000023e       0x78 build/default/production/buzzer.o
+                0x000000000000023e                play_melody
+
+.text.SendCommandSeq
+                0x00000000000002b6       0x64
+ .text.SendCommandSeq
+                0x00000000000002b6       0x64 build/default/production/display.o
+                0x00000000000002b6                SendCommandSeq
+
+.text.main      0x000000000000031a       0x60
+ .text.main     0x000000000000031a       0x60 build/default/production/main.o
+                0x000000000000031a                main
 
 .text.__vector_7
-                0x00000000000001be       0x5e
+                0x000000000000037a       0x5e
  .text.__vector_7
-                0x00000000000001be       0x5e build/default/production/buzzer.o
-                0x00000000000001be                __vector_7
-
-.text.main      0x000000000000021c       0x2c
- .text.main     0x000000000000021c       0x2c build/default/production/main.o
-                0x000000000000021c                main
-
-.text.__vector_13
-                0x0000000000000248       0x24
- .text.__vector_13
-                0x0000000000000248       0x24 build/default/production/newSonic.o
-                0x0000000000000248                __vector_13
+                0x000000000000037a       0x5e build/default/production/buzzer.o
+                0x000000000000037a                __vector_7
 
 .text.moist_Init
-                0x000000000000026c       0x1c
+                0x00000000000003d8       0x44
  .text.moist_Init
-                0x000000000000026c       0x1c build/default/production/Feuchtigkeit.o
-                0x000000000000026c                moist_Init
+                0x00000000000003d8       0x44 build/default/production/Feuchtigkeit.o
+                0x00000000000003d8                moist_Init
+
+.text.buzzer_Init
+                0x000000000000041c       0x40
+ .text.buzzer_Init
+                0x000000000000041c       0x40 build/default/production/buzzer.o
+                0x000000000000041c                buzzer_Init
+
+.text.__vector_13
+                0x000000000000045c       0x24
+ .text.__vector_13
+                0x000000000000045c       0x24 build/default/production/newSonic.o
+                0x000000000000045c                __vector_13
 
 .text.USART_Init
-                0x0000000000000288       0x18
+                0x0000000000000480       0x18
  .text.USART_Init
-                0x0000000000000288       0x18 build/default/production/uart.o
-                0x0000000000000288                USART_Init
+                0x0000000000000480       0x18 build/default/production/uart.o
+                0x0000000000000480                USART_Init
 
-.text.exit      0x00000000000002a0       0x16
- .text.exit     0x00000000000002a0       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x00000000000002a0                exit
+.text.exit      0x0000000000000498       0x16
+ .text.exit     0x0000000000000498       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000498                exit
 
 .text.__vector_11
-                0x00000000000002b6       0x14
+                0x00000000000004ae       0x14
  .text.__vector_11
-                0x00000000000002b6       0x14 build/default/production/newSonic.o
-                0x00000000000002b6                __vector_11
+                0x00000000000004ae       0x14 build/default/production/newSonic.o
+                0x00000000000004ae                __vector_11
 
 .text.USART_TransmitPolling
-                0x00000000000002ca       0x10
+                0x00000000000004c2       0x10
  .text.USART_TransmitPolling
-                0x00000000000002ca       0x10 build/default/production/uart.o
-                0x00000000000002ca                USART_TransmitPolling
+                0x00000000000004c2       0x10 build/default/production/uart.o
+                0x00000000000004c2                USART_TransmitPolling
 
-.text           0x00000000000002da        0x4
- .text          0x00000000000002da        0x4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
-                0x00000000000002da                __vector_22
-                0x00000000000002da                __vector_1
-                0x00000000000002da                __vector_24
-                0x00000000000002da                __bad_interrupt
-                0x00000000000002da                __vector_6
-                0x00000000000002da                __vector_3
-                0x00000000000002da                __vector_23
-                0x00000000000002da                __vector_25
-                0x00000000000002da                __vector_17
-                0x00000000000002da                __vector_19
-                0x00000000000002da                __vector_5
-                0x00000000000002da                __vector_4
-                0x00000000000002da                __vector_9
-                0x00000000000002da                __vector_2
-                0x00000000000002da                __vector_21
-                0x00000000000002da                __vector_15
-                0x00000000000002da                __vector_8
-                0x00000000000002da                __vector_14
-                0x00000000000002da                __vector_10
-                0x00000000000002da                __vector_16
-                0x00000000000002da                __vector_18
-                0x00000000000002da                __vector_20
+.text.libgcc    0x00000000000004d2       0x10
+ .text.libgcc   0x00000000000004d2       0x10 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
+                0x00000000000004d2                __xload_2
 
-.text._Exit     0x00000000000002de        0x4
- .text._Exit    0x00000000000002de        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
-                0x00000000000002de                _Exit
+.text.SPISend8Bit
+                0x00000000000004e2        0xe
+ .text.SPISend8Bit
+                0x00000000000004e2        0xe build/default/production/display.o
+                0x00000000000004e2                SPISend8Bit
+
+.text.SPI_init  0x00000000000004f0        0xc
+ .text.SPI_init
+                0x00000000000004f0        0xc build/default/production/display.o
+                0x00000000000004f0                SPI_init
+
+.text.sonic_Init
+                0x00000000000004fc        0xc
+ .text.sonic_Init
+                0x00000000000004fc        0xc build/default/production/newSonic.o
+                0x00000000000004fc                sonic_Init
+
+.text.button_Init
+                0x0000000000000508        0xa
+ .text.button_Init
+                0x0000000000000508        0xa build/default/production/main.o
+                0x0000000000000508                button_Init
+
+.text           0x0000000000000512        0x4
+ .text          0x0000000000000512        0x4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+                0x0000000000000512                __vector_22
+                0x0000000000000512                __vector_1
+                0x0000000000000512                __vector_24
+                0x0000000000000512                __bad_interrupt
+                0x0000000000000512                __vector_6
+                0x0000000000000512                __vector_3
+                0x0000000000000512                __vector_23
+                0x0000000000000512                __vector_25
+                0x0000000000000512                __vector_17
+                0x0000000000000512                __vector_19
+                0x0000000000000512                __vector_5
+                0x0000000000000512                __vector_4
+                0x0000000000000512                __vector_9
+                0x0000000000000512                __vector_2
+                0x0000000000000512                __vector_21
+                0x0000000000000512                __vector_15
+                0x0000000000000512                __vector_8
+                0x0000000000000512                __vector_14
+                0x0000000000000512                __vector_10
+                0x0000000000000512                __vector_16
+                0x0000000000000512                __vector_18
+                0x0000000000000512                __vector_20
+
+.text._Exit     0x0000000000000516        0x4
+ .text._Exit    0x0000000000000516        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+                0x0000000000000516                _Exit
 
 .text.__dummy_fini
-                0x00000000000002e2        0x2
+                0x000000000000051a        0x2
  .text.__dummy_fini
-                0x00000000000002e2        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x00000000000002e2                _fini
+                0x000000000000051a        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x000000000000051a                _fini
 
 .text.__dummy_funcs_on_exit
-                0x00000000000002e4        0x2
+                0x000000000000051c        0x2
  .text.__dummy_funcs_on_exit
-                0x00000000000002e4        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x00000000000002e4                __funcs_on_exit
+                0x000000000000051c        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x000000000000051c                __funcs_on_exit
 
 .text.__dummy_simulator_exit
-                0x00000000000002e6        0x2
+                0x000000000000051e        0x2
  .text.__dummy_simulator_exit
-                0x00000000000002e6        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x00000000000002e6                __simulator_exit
+                0x000000000000051e        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x000000000000051e                __simulator_exit
+
+.rodata         0x0000000000800100       0x52 load address 0x0000000000000520
+ .rodata        0x0000000000800100       0x52 build/default/production/display.o
 
 .data.melodyArray
-                0x0000000000800100       0x1e load address 0x00000000000002e8
+                0x0000000000800152       0x1e load address 0x0000000000000572
  .data.melodyArray
-                0x0000000000800100       0x1e build/default/production/buzzer.o
-                0x0000000000800100                melodyArray
+                0x0000000000800152       0x1e build/default/production/buzzer.o
+                0x0000000000800152                melodyArray
