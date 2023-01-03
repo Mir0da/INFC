@@ -47,6 +47,9 @@ void SendCommandSeq(const uint16_t * , uint16_t );
 void Display_init(void);
 void sendPic(const __flash int *, int count);
 void displayPlant(uint8_t advalue);
+void drawStatus();
+void drawMelodyStatus(uint8_t melodyPicker);
+void drawSleepStatus(uint8_t pick);
 
 #endif	/* DISPLAY_H */
 

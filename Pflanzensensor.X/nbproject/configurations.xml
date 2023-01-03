@@ -10,6 +10,7 @@
       <itemPath>moist.h</itemPath>
       <itemPath>picture.h</itemPath>
       <itemPath>ultrasonic.h</itemPath>
+      <itemPath>buttons.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,7 @@
       <itemPath>picture.c</itemPath>
       <itemPath>uart.c</itemPath>
       <itemPath>newSonic.c</itemPath>
+      <itemPath>buttons.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

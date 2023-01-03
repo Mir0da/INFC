@@ -42,29 +42,25 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/main.o
  .data          0x0000000000000000        0x0 build/default/production/main.o
  .bss           0x0000000000000000        0x0 build/default/production/main.o
- .text.startSleepTimer
-                0x0000000000000000       0x50 build/default/production/main.o
- .bss.melodyPicker
-                0x0000000000000000        0x1 build/default/production/main.o
  .text          0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
  .data          0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
  .bss           0x0000000000000000        0x0 build/default/production/Feuchtigkeit.o
  .text          0x0000000000000000        0x0 build/default/production/buzzer.o
  .data          0x0000000000000000        0x0 build/default/production/buzzer.o
  .bss           0x0000000000000000        0x0 build/default/production/buzzer.o
- .text.play_sound
-                0x0000000000000000       0x16 build/default/production/buzzer.o
  .text          0x0000000000000000        0x0 build/default/production/display.o
  .data          0x0000000000000000        0x0 build/default/production/display.o
  .bss           0x0000000000000000        0x0 build/default/production/display.o
  .text.sendPic  0x0000000000000000       0xb6 build/default/production/display.o
  .text.displayPlant
-                0x0000000000000000       0x64 build/default/production/display.o
- .data.melody3window
-                0x0000000000000000        0xc build/default/production/display.o
+                0x0000000000000000       0xa4 build/default/production/display.o
+ .text.drawStatus
+                0x0000000000000000       0x1c build/default/production/display.o
  .data.melody2window
                 0x0000000000000000        0xc build/default/production/display.o
  .data.melody1window
+                0x0000000000000000        0xc build/default/production/display.o
+ .data.melody0window
                 0x0000000000000000        0xc build/default/production/display.o
  .data.sleepwindow
                 0x0000000000000000        0xc build/default/production/display.o
@@ -102,120 +98,57 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/newSonic.o
  .data          0x0000000000000000        0x0 build/default/production/newSonic.o
  .bss           0x0000000000000000        0x0 build/default/production/newSonic.o
- .text.initTimer_1
-                0x0000000000000000       0x3e build/default/production/newSonic.o
- .text.initTimer_2
-                0x0000000000000000       0x36 build/default/production/newSonic.o
- .text.sonic_burst
-                0x0000000000000000       0x6e build/default/production/newSonic.o
- .text          0x0000000000000000        0xa c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
+ .text          0x0000000000000000        0x0 build/default/production/buttons.o
+ .data          0x0000000000000000        0x0 build/default/production/buttons.o
+ .bss           0x0000000000000000        0x0 build/default/production/buttons.o
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
  .stack.descriptors
                 0x0000000000000000       0x6a c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
- .text          0x0000000000000000        0x8 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
  .stack.descriptors
                 0x0000000000000000       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
- .text          0x0000000000000000       0xde c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
  .stack.descriptors
                 0x0000000000000000       0x31 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
- .text          0x0000000000000000       0x7a c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
  .stack.descriptors
                 0x0000000000000000       0x34 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
- .text          0x0000000000000000       0x48 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
  .stack.descriptors
                 0x0000000000000000       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
- .text          0x0000000000000000        0xc c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
  .stack.descriptors
                 0x0000000000000000       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
- .text          0x0000000000000000        0x6 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
  .stack.descriptors
                 0x0000000000000000       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
- .text          0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
  .stack.descriptors
                 0x0000000000000000       0x17 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
- .text          0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
  .stack.descriptors
                 0x0000000000000000       0x17 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
- .text          0x0000000000000000       0x22 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
  .stack.descriptors
                 0x0000000000000000       0x18 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
- .text          0x0000000000000000       0x44 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
  .stack.descriptors
                 0x0000000000000000       0x32 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
- .text          0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
- .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
  .stack.descriptors
                 0x0000000000000000       0x2f c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
- .note.GNU-stack
-                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
  .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_copy_data.o)
@@ -298,6 +231,7 @@ LOAD build/default/production/display.o
 LOAD build/default/production/picture.o
 LOAD build/default/production/uart.o
 LOAD build/default/production/newSonic.o
+LOAD build/default/production/buttons.o
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
 END GROUP
@@ -417,6 +351,7 @@ END GROUP
  *(.dinit)
  .dinit         0x0000000000000068        0xc data_init
                 0x0000000000000074                . = ALIGN (0x2)
+ *fill*         0x0000000000000074        0x0 
                 0x0000000000000074                __trampolines_start = .
  *(.trampolines)
  .trampolines   0x0000000000000074        0x0 linker stubs
@@ -557,18 +492,67 @@ END GROUP
  .comment       0x000000000000002f       0x30 build/default/production/display.o
  .comment       0x000000000000002f       0x30 build/default/production/uart.o
  .comment       0x000000000000002f       0x30 build/default/production/newSonic.o
+ .comment       0x000000000000002f       0x30 build/default/production/buttons.o
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
  .comment       0x000000000000002f       0x30 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
 
 .stack.descriptors.hdr
-                0x0000000000000000       0x1c
+                0x0000000000000000       0xc4
  .stack.descriptors.hdr
-                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
+                0x0000000000000000        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
  .stack.descriptors.hdr
-                0x000000000000000e        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
+                0x000000000000000e        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
+ .stack.descriptors.hdr
+                0x000000000000001c        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
+ .stack.descriptors.hdr
+                0x000000000000002a        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
+ .stack.descriptors.hdr
+                0x0000000000000038        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
+ .stack.descriptors.hdr
+                0x0000000000000046        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
+ .stack.descriptors.hdr
+                0x0000000000000054        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
+ .stack.descriptors.hdr
+                0x0000000000000062        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
+ .stack.descriptors.hdr
+                0x0000000000000070        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
+ .stack.descriptors.hdr
+                0x000000000000007e        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
+ .stack.descriptors.hdr
+                0x000000000000008c        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
+ .stack.descriptors.hdr
+                0x000000000000009a        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
+ .stack.descriptors.hdr
+                0x00000000000000a8        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
+ .stack.descriptors.hdr
+                0x00000000000000b6        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
 
 .note.GNU-stack
                 0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
+ .note.GNU-stack
+                0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
  .note.GNU-stack
                 0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
  .note.GNU-stack
@@ -589,77 +573,85 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x148
+.debug_aranges  0x0000000000000000      0x178
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x38 build/default/production/main.o
+                0x0000000000000000       0x30 build/default/production/main.o
  .debug_aranges
-                0x0000000000000038       0x20 build/default/production/Feuchtigkeit.o
+                0x0000000000000030       0x20 build/default/production/Feuchtigkeit.o
  .debug_aranges
-                0x0000000000000058       0x38 build/default/production/buzzer.o
+                0x0000000000000050       0x38 build/default/production/buzzer.o
  .debug_aranges
-                0x0000000000000090       0x48 build/default/production/display.o
+                0x0000000000000088       0x60 build/default/production/display.o
  .debug_aranges
-                0x00000000000000d8       0x28 build/default/production/uart.o
+                0x00000000000000e8       0x28 build/default/production/uart.o
  .debug_aranges
-                0x0000000000000100       0x48 build/default/production/newSonic.o
+                0x0000000000000110       0x48 build/default/production/newSonic.o
+ .debug_aranges
+                0x0000000000000158       0x20 build/default/production/buttons.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1fa1
+.debug_info     0x0000000000000000     0x241e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x5f4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_info    0x00000000000005f4      0x4bd build/default/production/main.o
- .debug_info    0x0000000000000ab1      0x269 build/default/production/Feuchtigkeit.o
- .debug_info    0x0000000000000d1a      0x41a build/default/production/buzzer.o
- .debug_info    0x0000000000001134      0x874 build/default/production/display.o
- .debug_info    0x00000000000019a8      0x287 build/default/production/uart.o
- .debug_info    0x0000000000001c2f      0x372 build/default/production/newSonic.o
+ .debug_info    0x00000000000005f4      0x546 build/default/production/main.o
+ .debug_info    0x0000000000000b3a      0x269 build/default/production/Feuchtigkeit.o
+ .debug_info    0x0000000000000da3      0x41a build/default/production/buzzer.o
+ .debug_info    0x00000000000011bd      0xa16 build/default/production/display.o
+ .debug_info    0x0000000000001bd3      0x287 build/default/production/uart.o
+ .debug_info    0x0000000000001e5a      0x372 build/default/production/newSonic.o
+ .debug_info    0x00000000000021cc      0x252 build/default/production/buttons.o
 
-.debug_abbrev   0x0000000000000000      0xb3d
+.debug_abbrev   0x0000000000000000      0xbaa
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x5a2 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_abbrev  0x00000000000005a2      0x167 build/default/production/main.o
- .debug_abbrev  0x0000000000000709       0x44 build/default/production/Feuchtigkeit.o
- .debug_abbrev  0x000000000000074d      0x13c build/default/production/buzzer.o
- .debug_abbrev  0x0000000000000889      0x1a1 build/default/production/display.o
- .debug_abbrev  0x0000000000000a2a       0x6b build/default/production/uart.o
- .debug_abbrev  0x0000000000000a95       0xa8 build/default/production/newSonic.o
+ .debug_abbrev  0x00000000000005a2      0x178 build/default/production/main.o
+ .debug_abbrev  0x000000000000071a       0x44 build/default/production/Feuchtigkeit.o
+ .debug_abbrev  0x000000000000075e      0x13c build/default/production/buzzer.o
+ .debug_abbrev  0x000000000000089a      0x1b9 build/default/production/display.o
+ .debug_abbrev  0x0000000000000a53       0x6b build/default/production/uart.o
+ .debug_abbrev  0x0000000000000abe       0xa8 build/default/production/newSonic.o
+ .debug_abbrev  0x0000000000000b66       0x44 build/default/production/buttons.o
 
-.debug_line     0x0000000000000000      0xb90
+.debug_line     0x0000000000000000      0xcfb
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x137 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_line    0x0000000000000137      0x269 build/default/production/main.o
- .debug_line    0x00000000000003a0       0xcc build/default/production/Feuchtigkeit.o
- .debug_line    0x000000000000046c      0x1b4 build/default/production/buzzer.o
- .debug_line    0x0000000000000620      0x2c9 build/default/production/display.o
- .debug_line    0x00000000000008e9       0xbc build/default/production/uart.o
- .debug_line    0x00000000000009a5      0x1eb build/default/production/newSonic.o
+ .debug_line    0x0000000000000137      0x2da build/default/production/main.o
+ .debug_line    0x0000000000000411       0xcc build/default/production/Feuchtigkeit.o
+ .debug_line    0x00000000000004dd      0x1b4 build/default/production/buzzer.o
+ .debug_line    0x0000000000000691      0x32c build/default/production/display.o
+ .debug_line    0x00000000000009bd       0xbc build/default/production/uart.o
+ .debug_line    0x0000000000000a79      0x1eb build/default/production/newSonic.o
+ .debug_line    0x0000000000000c64       0x97 build/default/production/buttons.o
 
-.debug_frame    0x0000000000000000      0x2e0
+.debug_frame    0x0000000000000000      0x360
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x6c build/default/production/main.o
- .debug_frame   0x000000000000006c       0x24 build/default/production/Feuchtigkeit.o
- .debug_frame   0x0000000000000090       0x9c build/default/production/buzzer.o
- .debug_frame   0x000000000000012c       0xf8 build/default/production/display.o
- .debug_frame   0x0000000000000224       0x34 build/default/production/uart.o
- .debug_frame   0x0000000000000258       0x88 build/default/production/newSonic.o
+ .debug_frame   0x0000000000000000       0x98 build/default/production/main.o
+ .debug_frame   0x0000000000000098       0x24 build/default/production/Feuchtigkeit.o
+ .debug_frame   0x00000000000000bc       0x9c build/default/production/buzzer.o
+ .debug_frame   0x0000000000000158      0x128 build/default/production/display.o
+ .debug_frame   0x0000000000000280       0x34 build/default/production/uart.o
+ .debug_frame   0x00000000000002b4       0x88 build/default/production/newSonic.o
+ .debug_frame   0x000000000000033c       0x24 build/default/production/buttons.o
 
-.debug_str      0x0000000000000000      0x26b
+.debug_str      0x0000000000000000      0x2af
  *(.debug_str)
  .debug_str     0x0000000000000000      0x208 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
- .debug_str     0x0000000000000208       0x59 build/default/production/main.o
- .debug_str     0x0000000000000261        0x0 build/default/production/Feuchtigkeit.o
- .debug_str     0x0000000000000261        0x0 build/default/production/buzzer.o
- .debug_str     0x0000000000000261        0xa build/default/production/display.o
- .debug_str     0x000000000000026b        0x0 build/default/production/uart.o
- .debug_str     0x000000000000026b        0x0 build/default/production/newSonic.o
+ .debug_str     0x0000000000000208       0x9d build/default/production/main.o
+ .debug_str     0x00000000000002a5        0x0 build/default/production/Feuchtigkeit.o
+ .debug_str     0x00000000000002a5        0x0 build/default/production/buzzer.o
+ .debug_str     0x00000000000002a5        0xa build/default/production/display.o
+ .debug_str     0x00000000000002af        0x0 build/default/production/uart.o
+ .debug_str     0x00000000000002af        0x0 build/default/production/newSonic.o
+ .debug_str     0x00000000000002af        0x0 build/default/production/buttons.o
 
-.debug_loc      0x0000000000000000      0x50b
+.debug_loc      0x0000000000000000      0x5d0
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x76 build/default/production/buzzer.o
- .debug_loc     0x0000000000000076      0x495 build/default/production/display.o
+ .debug_loc     0x0000000000000000       0x7d build/default/production/main.o
+ .debug_loc     0x000000000000007d       0x76 build/default/production/buzzer.o
+ .debug_loc     0x00000000000000f3      0x4dd build/default/production/display.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -679,14 +671,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000      0x100
+.debug_ranges   0x0000000000000000      0x120
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x28 build/default/production/main.o
- .debug_ranges  0x0000000000000028       0x10 build/default/production/Feuchtigkeit.o
- .debug_ranges  0x0000000000000038       0x28 build/default/production/buzzer.o
- .debug_ranges  0x0000000000000060       0x50 build/default/production/display.o
- .debug_ranges  0x00000000000000b0       0x18 build/default/production/uart.o
- .debug_ranges  0x00000000000000c8       0x38 build/default/production/newSonic.o
+ .debug_ranges  0x0000000000000000       0x20 build/default/production/main.o
+ .debug_ranges  0x0000000000000020       0x10 build/default/production/Feuchtigkeit.o
+ .debug_ranges  0x0000000000000030       0x28 build/default/production/buzzer.o
+ .debug_ranges  0x0000000000000058       0x68 build/default/production/display.o
+ .debug_ranges  0x00000000000000c0       0x18 build/default/production/uart.o
+ .debug_ranges  0x00000000000000d8       0x38 build/default/production/newSonic.o
+ .debug_ranges  0x0000000000000110       0x10 build/default/production/buttons.o
 
 .debug_macro
  *(.debug_macro)
@@ -699,43 +692,49 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x40 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
 
-.bss.count.1979
+.bss.count.1986
                 0x0000000000800172        0x1
- .bss.count.1979
+ .bss.count.1986
                 0x0000000000800172        0x1 build/default/production/main.o
 
-.bss.sleepLongFlag
+.bss.melodyPicker
                 0x0000000000800173        0x1
- .bss.sleepLongFlag
+ .bss.melodyPicker
                 0x0000000000800173        0x1 build/default/production/main.o
-                0x0000000000800173                sleepLongFlag
+                0x0000000000800173                melodyPicker
 
-.bss.sleepFlag  0x0000000000800174        0x1
- .bss.sleepFlag
+.bss.sleepLongFlag
+                0x0000000000800174        0x1
+ .bss.sleepLongFlag
                 0x0000000000800174        0x1 build/default/production/main.o
-                0x0000000000800174                sleepFlag
+                0x0000000000800174                sleepLongFlag
+
+.bss.sleepFlag  0x0000000000800175        0x1
+ .bss.sleepFlag
+                0x0000000000800175        0x1 build/default/production/main.o
+                0x0000000000800175                sleepFlag
 
 .bss.counter.1963
-                0x0000000000800175        0x1
- .bss.counter.1963
-                0x0000000000800175        0x1 build/default/production/buzzer.o
-
-.bss.overflowCounter.1955
                 0x0000000000800176        0x1
- .bss.overflowCounter.1955
+ .bss.counter.1963
                 0x0000000000800176        0x1 build/default/production/buzzer.o
 
-.bss.melodyPick
+.bss.overflowCounter.1955
                 0x0000000000800177        0x1
- .bss.melodyPick
+ .bss.overflowCounter.1955
                 0x0000000000800177        0x1 build/default/production/buzzer.o
-                0x0000000000800177                melodyPick
+
+.bss.melodyPick
+                0x0000000000800178        0x1
+ .bss.melodyPick
+                0x0000000000800178        0x1 build/default/production/buzzer.o
+                0x0000000000800178                melodyPick
 
 .bss.triggerFlag
-                0x0000000000800178        0x1
+                0x0000000000800179        0x1
  .bss.triggerFlag
-                0x0000000000800178        0x1 build/default/production/newSonic.o
-                0x0000000000800178                triggerFlag
+                0x0000000000800179        0x1 build/default/production/newSonic.o
+                0x0000000000800179                triggerFlag
 
 .bss.TimerOverflow
                 0x0000000000800170        0x2
@@ -749,153 +748,251 @@ LOAD data_init
                 0x00000000000000c8       0xf8 build/default/production/display.o
                 0x00000000000000c8                Display_init
 
+.text           0x00000000000001c0       0xde
+ .text          0x00000000000001c0       0xde c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3x.o)
+                0x00000000000001c0                __divsf3x
+                0x00000000000001e8                __divsf3_pse
+
+.text.main      0x000000000000029e       0xda
+ .text.main     0x000000000000029e       0xda build/default/production/main.o
+                0x000000000000029e                main
+
 .text.__vector_12
-                0x00000000000001c0       0x7e
+                0x0000000000000378       0xa8
  .text.__vector_12
-                0x00000000000001c0       0x7e build/default/production/main.o
-                0x00000000000001c0                __vector_12
+                0x0000000000000378       0xa8 build/default/production/main.o
+                0x0000000000000378                __vector_12
+
+.text           0x0000000000000420       0x7a
+ .text          0x0000000000000420       0x7a c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(floatsisf.o)
+                0x0000000000000420                __floatunsisf
+                0x0000000000000424                __floatsisf
 
 .text.play_melody
-                0x000000000000023e       0x78
+                0x000000000000049a       0x78
  .text.play_melody
-                0x000000000000023e       0x78 build/default/production/buzzer.o
-                0x000000000000023e                play_melody
+                0x000000000000049a       0x78 build/default/production/buzzer.o
+                0x000000000000049a                play_melody
+
+.text.sonic_burst
+                0x0000000000000512       0x6e
+ .text.sonic_burst
+                0x0000000000000512       0x6e build/default/production/newSonic.o
+                0x0000000000000512                sonic_burst
 
 .text.SendCommandSeq
-                0x00000000000002b6       0x64
+                0x0000000000000580       0x64
  .text.SendCommandSeq
-                0x00000000000002b6       0x64 build/default/production/display.o
-                0x00000000000002b6                SendCommandSeq
-
-.text.main      0x000000000000031a       0x60
- .text.main     0x000000000000031a       0x60 build/default/production/main.o
-                0x000000000000031a                main
+                0x0000000000000580       0x64 build/default/production/display.o
+                0x0000000000000580                SendCommandSeq
 
 .text.__vector_7
-                0x000000000000037a       0x5e
+                0x00000000000005e4       0x5e
  .text.__vector_7
-                0x000000000000037a       0x5e build/default/production/buzzer.o
-                0x000000000000037a                __vector_7
+                0x00000000000005e4       0x5e build/default/production/buzzer.o
+                0x00000000000005e4                __vector_7
+
+.text.startSleepTimer
+                0x0000000000000642       0x50
+ .text.startSleepTimer
+                0x0000000000000642       0x50 build/default/production/main.o
+                0x0000000000000642                startSleepTimer
+
+.text           0x0000000000000692       0x48
+ .text          0x0000000000000692       0x48 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_cmp.o)
+                0x0000000000000692                __fp_cmp
 
 .text.moist_Init
-                0x00000000000003d8       0x44
+                0x00000000000006da       0x44
  .text.moist_Init
-                0x00000000000003d8       0x44 build/default/production/Feuchtigkeit.o
-                0x00000000000003d8                moist_Init
+                0x00000000000006da       0x44 build/default/production/Feuchtigkeit.o
+                0x00000000000006da                moist_Init
+
+.text           0x000000000000071e       0x44
+ .text          0x000000000000071e       0x44 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_split3.o)
+                0x000000000000071e                __fp_split3
+                0x000000000000072e                __fp_splitA
 
 .text.buzzer_Init
-                0x000000000000041c       0x40
+                0x0000000000000762       0x40
  .text.buzzer_Init
-                0x000000000000041c       0x40 build/default/production/buzzer.o
-                0x000000000000041c                buzzer_Init
+                0x0000000000000762       0x40 build/default/production/buzzer.o
+                0x0000000000000762                buzzer_Init
+
+.text.initTimer_1
+                0x00000000000007a2       0x3e
+ .text.initTimer_1
+                0x00000000000007a2       0x3e build/default/production/newSonic.o
+                0x00000000000007a2                initTimer_1
+
+.text.initTimer_2
+                0x00000000000007e0       0x36
+ .text.initTimer_2
+                0x00000000000007e0       0x36 build/default/production/newSonic.o
+                0x00000000000007e0                initTimer_2
 
 .text.__vector_13
-                0x000000000000045c       0x24
+                0x0000000000000816       0x24
  .text.__vector_13
-                0x000000000000045c       0x24 build/default/production/newSonic.o
-                0x000000000000045c                __vector_13
+                0x0000000000000816       0x24 build/default/production/newSonic.o
+                0x0000000000000816                __vector_13
+
+.text           0x000000000000083a       0x22
+ .text          0x000000000000083a       0x22 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_round.o)
+                0x000000000000083a                __fp_round
 
 .text.USART_Init
-                0x0000000000000480       0x18
+                0x000000000000085c       0x18
  .text.USART_Init
-                0x0000000000000480       0x18 build/default/production/uart.o
-                0x0000000000000480                USART_Init
+                0x000000000000085c       0x18 build/default/production/uart.o
+                0x000000000000085c                USART_Init
 
-.text.exit      0x0000000000000498       0x16
- .text.exit     0x0000000000000498       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x0000000000000498                exit
+.text.play_sound
+                0x0000000000000874       0x16
+ .text.play_sound
+                0x0000000000000874       0x16 build/default/production/buzzer.o
+                0x0000000000000874                play_sound
+
+.text.exit      0x000000000000088a       0x16
+ .text.exit     0x000000000000088a       0x16 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x000000000000088a                exit
 
 .text.__vector_11
-                0x00000000000004ae       0x14
+                0x00000000000008a0       0x14
  .text.__vector_11
-                0x00000000000004ae       0x14 build/default/production/newSonic.o
-                0x00000000000004ae                __vector_11
+                0x00000000000008a0       0x14 build/default/production/newSonic.o
+                0x00000000000008a0                __vector_11
 
 .text.USART_TransmitPolling
-                0x00000000000004c2       0x10
+                0x00000000000008b4       0x10
  .text.USART_TransmitPolling
-                0x00000000000004c2       0x10 build/default/production/uart.o
-                0x00000000000004c2                USART_TransmitPolling
+                0x00000000000008b4       0x10 build/default/production/uart.o
+                0x00000000000008b4                USART_TransmitPolling
 
-.text.libgcc    0x00000000000004d2       0x10
- .text.libgcc   0x00000000000004d2       0x10 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
-                0x00000000000004d2                __xload_2
+.text.libgcc    0x00000000000008c4       0x10
+ .text.libgcc   0x00000000000008c4       0x10 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_xload_2.o)
+                0x00000000000008c4                __xload_2
 
 .text.SPISend8Bit
-                0x00000000000004e2        0xe
+                0x00000000000008d4        0xe
  .text.SPISend8Bit
-                0x00000000000004e2        0xe build/default/production/display.o
-                0x00000000000004e2                SPISend8Bit
+                0x00000000000008d4        0xe build/default/production/display.o
+                0x00000000000008d4                SPISend8Bit
 
-.text.SPI_init  0x00000000000004f0        0xc
+.text           0x00000000000008e2        0xe
+ .text          0x00000000000008e2        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscA.o)
+                0x00000000000008e2                __fp_pscA
+
+.text           0x00000000000008f0        0xe
+ .text          0x00000000000008f0        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_pscB.o)
+                0x00000000000008f0                __fp_pscB
+
+.text           0x00000000000008fe        0xe
+ .text          0x00000000000008fe        0xe c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_zero.o)
+                0x00000000000008fe                __fp_zero
+                0x0000000000000900                __fp_szero
+
+.text.SPI_init  0x000000000000090c        0xc
  .text.SPI_init
-                0x00000000000004f0        0xc build/default/production/display.o
-                0x00000000000004f0                SPI_init
+                0x000000000000090c        0xc build/default/production/display.o
+                0x000000000000090c                SPI_init
 
 .text.sonic_Init
-                0x00000000000004fc        0xc
+                0x0000000000000918        0xc
  .text.sonic_Init
-                0x00000000000004fc        0xc build/default/production/newSonic.o
-                0x00000000000004fc                sonic_Init
+                0x0000000000000918        0xc build/default/production/newSonic.o
+                0x0000000000000918                sonic_Init
+
+.text           0x0000000000000924        0xc
+ .text          0x0000000000000924        0xc c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_inf.o)
+                0x0000000000000924                __fp_inf
 
 .text.button_Init
-                0x0000000000000508        0xa
+                0x0000000000000930        0xa
  .text.button_Init
-                0x0000000000000508        0xa build/default/production/main.o
-                0x0000000000000508                button_Init
+                0x0000000000000930        0xa build/default/production/buttons.o
+                0x0000000000000930                button_Init
 
-.text           0x0000000000000512        0x4
- .text          0x0000000000000512        0x4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
-                0x0000000000000512                __vector_22
-                0x0000000000000512                __vector_1
-                0x0000000000000512                __vector_24
-                0x0000000000000512                __bad_interrupt
-                0x0000000000000512                __vector_6
-                0x0000000000000512                __vector_3
-                0x0000000000000512                __vector_23
-                0x0000000000000512                __vector_25
-                0x0000000000000512                __vector_17
-                0x0000000000000512                __vector_19
-                0x0000000000000512                __vector_5
-                0x0000000000000512                __vector_4
-                0x0000000000000512                __vector_9
-                0x0000000000000512                __vector_2
-                0x0000000000000512                __vector_21
-                0x0000000000000512                __vector_15
-                0x0000000000000512                __vector_8
-                0x0000000000000512                __vector_14
-                0x0000000000000512                __vector_10
-                0x0000000000000512                __vector_16
-                0x0000000000000512                __vector_18
-                0x0000000000000512                __vector_20
+.text           0x000000000000093a        0xa
+ .text          0x000000000000093a        0xa c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(cmpsf2.o)
+                0x000000000000093a                __nesf2
+                0x000000000000093a                __eqsf2
+                0x000000000000093a                __cmpsf2
+                0x000000000000093a                __ltsf2
+                0x000000000000093a                __lesf2
 
-.text._Exit     0x0000000000000516        0x4
- .text._Exit    0x0000000000000516        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
-                0x0000000000000516                _Exit
+.text           0x0000000000000944        0x8
+ .text          0x0000000000000944        0x8 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(divsf3.o)
+                0x0000000000000944                __divsf3
+
+.text           0x000000000000094c        0x6
+ .text          0x000000000000094c        0x6 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(fp_nan.o)
+                0x000000000000094c                __fp_nan
+
+.text           0x0000000000000952        0x4
+ .text          0x0000000000000952        0x4 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/ATmega_DFP/2.4.131/xc8/avr/lib/avr5/memx-const/crtatmega328p.o
+                0x0000000000000952                __vector_22
+                0x0000000000000952                __vector_1
+                0x0000000000000952                __vector_24
+                0x0000000000000952                __bad_interrupt
+                0x0000000000000952                __vector_6
+                0x0000000000000952                __vector_3
+                0x0000000000000952                __vector_23
+                0x0000000000000952                __vector_25
+                0x0000000000000952                __vector_17
+                0x0000000000000952                __vector_19
+                0x0000000000000952                __vector_5
+                0x0000000000000952                __vector_4
+                0x0000000000000952                __vector_9
+                0x0000000000000952                __vector_2
+                0x0000000000000952                __vector_21
+                0x0000000000000952                __vector_15
+                0x0000000000000952                __vector_8
+                0x0000000000000952                __vector_14
+                0x0000000000000952                __vector_10
+                0x0000000000000952                __vector_16
+                0x0000000000000952                __vector_18
+                0x0000000000000952                __vector_20
+
+.text._Exit     0x0000000000000956        0x4
+ .text._Exit    0x0000000000000956        0x4 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(_Exit.o)
+                0x0000000000000956                _Exit
+
+.text.drawMelodyStatus
+                0x000000000000095a        0x2
+ .text.drawMelodyStatus
+                0x000000000000095a        0x2 build/default/production/display.o
+                0x000000000000095a                drawMelodyStatus
+
+.text.drawSleepStatus
+                0x000000000000095c        0x2
+ .text.drawSleepStatus
+                0x000000000000095c        0x2 build/default/production/display.o
+                0x000000000000095c                drawSleepStatus
 
 .text.__dummy_fini
-                0x000000000000051a        0x2
+                0x000000000000095e        0x2
  .text.__dummy_fini
-                0x000000000000051a        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x000000000000051a                _fini
+                0x000000000000095e        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x000000000000095e                _fini
 
 .text.__dummy_funcs_on_exit
-                0x000000000000051c        0x2
+                0x0000000000000960        0x2
  .text.__dummy_funcs_on_exit
-                0x000000000000051c        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x000000000000051c                __funcs_on_exit
+                0x0000000000000960        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000960                __funcs_on_exit
 
 .text.__dummy_simulator_exit
-                0x000000000000051e        0x2
+                0x0000000000000962        0x2
  .text.__dummy_simulator_exit
-                0x000000000000051e        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
-                0x000000000000051e                __simulator_exit
+                0x0000000000000962        0x2 c:/program files/microchip/xc8/v2.36/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libc.a(exit.o)
+                0x0000000000000962                __simulator_exit
 
-.rodata         0x0000000000800100       0x52 load address 0x0000000000000520
+.rodata         0x0000000000800100       0x52 load address 0x0000000000000964
  .rodata        0x0000000000800100       0x52 build/default/production/display.o
 
 .data.melodyArray
-                0x0000000000800152       0x1e load address 0x0000000000000572
+                0x0000000000800152       0x1e load address 0x00000000000009b6
  .data.melodyArray
                 0x0000000000800152       0x1e build/default/production/buzzer.o
                 0x0000000000800152                melodyArray

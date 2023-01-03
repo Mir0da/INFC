@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c Feuchtigkeit.c buzzer.c display.c picture.c uart.c newSonic.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c Feuchtigkeit.c buzzer.c display.c picture.c uart.c newSonic.c buttons.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/newSonic.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/Feuchtigkeit.o.d ${OBJECTDIR}/buzzer.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/picture.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/newSonic.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/newSonic.o ${OBJECTDIR}/buttons.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/Feuchtigkeit.o.d ${OBJECTDIR}/buzzer.o.d ${OBJECTDIR}/display.o.d ${OBJECTDIR}/picture.o.d ${OBJECTDIR}/uart.o.d ${OBJECTDIR}/newSonic.o.d ${OBJECTDIR}/buttons.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/newSonic.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/Feuchtigkeit.o ${OBJECTDIR}/buzzer.o ${OBJECTDIR}/display.o ${OBJECTDIR}/picture.o ${OBJECTDIR}/uart.o ${OBJECTDIR}/newSonic.o ${OBJECTDIR}/buttons.o
 
 # Source Files
-SOURCEFILES=main.c Feuchtigkeit.c buzzer.c display.c picture.c uart.c newSonic.c
+SOURCEFILES=main.c Feuchtigkeit.c buzzer.c display.c picture.c uart.c newSonic.c buttons.c
 
 
 
@@ -136,6 +136,12 @@ ${OBJECTDIR}/newSonic.o: newSonic.c  .generated_files/flags/default/7ab451b66efa
 	@${RM} ${OBJECTDIR}/newSonic.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/newSonic.o.d" -MT "${OBJECTDIR}/newSonic.o.d" -MT ${OBJECTDIR}/newSonic.o -o ${OBJECTDIR}/newSonic.o newSonic.c 
 	
+${OBJECTDIR}/buttons.o: buttons.c  .generated_files/flags/default/3926405606fe0a69b0aefa4adc56b86691478929 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buttons.o.d 
+	@${RM} ${OBJECTDIR}/buttons.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/buttons.o.d" -MT "${OBJECTDIR}/buttons.o.d" -MT ${OBJECTDIR}/buttons.o -o ${OBJECTDIR}/buttons.o buttons.c 
+	
 else
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/84ae4a1828c8dddc542223e6364c8dd667b6bad8 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
 	@${MKDIR} "${OBJECTDIR}" 
@@ -178,6 +184,12 @@ ${OBJECTDIR}/newSonic.o: newSonic.c  .generated_files/flags/default/57b3add0a78f
 	@${RM} ${OBJECTDIR}/newSonic.o.d 
 	@${RM} ${OBJECTDIR}/newSonic.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/newSonic.o.d" -MT "${OBJECTDIR}/newSonic.o.d" -MT ${OBJECTDIR}/newSonic.o -o ${OBJECTDIR}/newSonic.o newSonic.c 
+	
+${OBJECTDIR}/buttons.o: buttons.c  .generated_files/flags/default/e32cccd3640a3c8c1b741bf3e0dc4de9194fbb31 .generated_files/flags/default/c1e3170f6c2f4ee99286804d8babe1b1bd4428ea
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/buttons.o.d 
+	@${RM} ${OBJECTDIR}/buttons.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -fno-common -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/buttons.o.d" -MT "${OBJECTDIR}/buttons.o.d" -MT ${OBJECTDIR}/buttons.o -o ${OBJECTDIR}/buttons.o buttons.c 
 	
 endif
 

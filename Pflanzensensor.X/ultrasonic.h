@@ -19,8 +19,6 @@
 #define TRIGGER_OFF PORTC &= ~(1<<TRIGGER)
 #define ECHO_IN ((PINB & (1<<ECHO)))
 
-#define LED_ON PORTC |= (1<<PORTC2)
-#define LED_OFF PORTC &= ~(1<<PORTC2)
 void sonic_Init();
 uint8_t sonic_burst(void);
 

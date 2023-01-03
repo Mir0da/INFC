@@ -99,20 +99,107 @@ void sendPic(const __flash int picture[], int count){
 }
 
 void displayPlant(uint8_t advalue){
-    if(advalue > 500){                      //WELL
-        sendPic(Bild1,2301);
+    SendCommandSeq(plantwindow,6);
+    
+    if(advalue < 140){                      //WELL
+        sendPic(Bild1,2085);
         _delay_ms(500);      //animated
-        sendPic(Bild1Animated,2085);
+        sendPic(Bild1Animated,2025);
     }
     
-    if(advalue > 150 && advalue < 300){     //MEDIOCRE
-        sendPic(Bild1,2301);
+    if(advalue < 180 && advalue > 140){     //MEDIOCRE
+        sendPic(Bild2,1929);
         _delay_ms(500);
-        sendPic(Bild1Animated,2085);
+        sendPic(Bild2Animated,1869);
     }
-    if(advalue < 150){                      //BAD
-        sendPic(Bild1,2301);
+    if(advalue > 180){                      //BAD
+        sendPic(Bild3,1978);
         _delay_ms(500);
-        sendPic(Bild1Animated,2085);
+        sendPic(Bild3Animated,1908);
     }
+}
+
+void drawStatus(){
+    SendCommandSeq(statuswindow,6);
+    sendPic(Status,891);
+}
+
+void drawMelodyStatus(uint8_t melodyPicker){
+        
+//                  SendCommandSeq(melody0window,6);
+//    
+//                  for(uint16_t i= 0; i < (11*11); i++)
+//                  {
+//                      SPISend8Bit(0x00); //
+//                      SPISend8Bit(0x00); //
+//                  }
+                    
+//                  SendCommandSeq(melody1window,6);
+//    
+//                  for(uint16_t i= 0; i < (11*11); i++)
+//                  {
+//                      SPISend8Bit(0x00); //
+//                      SPISend8Bit(0x00); //
+//                  }
+                    
+//                  SendCommandSeq(melody2window,6);
+//    
+//                  for(uint16_t i= 0; i < (11*11); i++)
+//                  {
+//                      SPISend8Bit(0x00); //
+//                      SPISend8Bit(0x00); //
+//                  }      
+                if(melodyPicker == 0)
+                {
+//                  SendCommandSeq(melody0window,6);
+//    
+//                  for(uint16_t i= 0; i < (11*11); i++)
+//                  {
+//                      SPISend8Bit(0x55); //
+//                      SPISend8Bit(0x27); //
+//                  }      
+                }
+                if(melodyPicker == 1)
+                {
+//                  SendCommandSeq(melody1window,6);
+//    
+//                  for(uint16_t i= 0; i < (11*11); i++)
+//                  {
+//                      SPISend8Bit(0x55); //
+//                      SPISend8Bit(0x27); //
+//                  }      
+                }
+                if(melodyPicker == 2)
+                {
+//                  SendCommandSeq(melody2window,6);
+//    
+//                  for(uint16_t i= 0; i < (11*11); i++)
+//                  {
+//                      SPISend8Bit(0x55); //
+//                      SPISend8Bit(0x27); //
+//                  }      
+                }
+
+}
+
+void drawSleepStatus(uint8_t pick){
+    //          SendCommandSeq(sleepwindow,6);
+    
+    if(pick == 0)
+    {
+//          for(uint16_t i= 0; i < (11*11); i++)
+//           {
+//               SPISend8Bit(0x00); // schwarz
+//               SPISend8Bit(0x00); // schwarz
+//            }
+    }
+    else
+    {
+//          for(uint16_t i= 0; i < (11*11); i++)
+//           {
+//               SPISend8Bit(0x55); // grün
+//               SPISend8Bit(0x27); // grün
+//            }
+    }
+
 }
