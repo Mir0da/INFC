@@ -20,7 +20,6 @@
 
 #define BUTTON1_PRESS (!(PIND & (1<<PIND1)))
 #define BUTTON2_PRESS (!(PINB & (1<<PINB1)))
-uint16_t  ADC_High_Byte = 0x00000011; // unsigned int 8 bit variable
 
 volatile uint8_t sleepFlag=0;
 volatile uint8_t sleepLongFlag=0;
@@ -62,6 +61,13 @@ ISR(TIMER1_COMPB_vect)
         sleepLongFlag = 0;
         count = 0;
         LED_OFF;
+//      SendCommandSeq(windowSleep,6);
+//    
+//          for(uint16_t i= 0; i < (166*122); i++)
+//           {
+//               SPISend8Bit(0x00); // WEISS 0x07EF
+//               SPISend8Bit(0x00); // WEISS 0x07EF
+//            }
         //stop timer
         TCCR1B &= ~(1<<CS12); 
         TCCR1B &= ~(1<<CS10);
@@ -82,21 +88,47 @@ void button_Init(){
 
 int main(void) {
 
-    sonic_Init();
+    //sonic_Init();
     moist_Init();  
     USART_Init();
-    buzzer_Init();
-    button_Init();
+    //buzzer_Init();
+    //button_Init();
     // Display
-    SPI_init();
-    Display_init();
+    //SPI_init();
+    //Display_init();
     
     uint8_t buttonFlag=0;
+    uint8_t trash;
 
-//    uint16_t window[] ={
+//    uint16_t windowAnimation[] ={
 //        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
 //        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
 //	};
+    
+    //    uint16_t windowStatus[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+//	};
+    
+//    uint16_t windowSleep[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+//	};
+//    uint16_t windowMelody0[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+//	};
+//    
+//    uint16_t windowMelody1[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+//	};
+//    
+//    uint16_t windowMelody2[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+//	};
+    
 //    
 //    for(uint16_t i= 0; i < (176*132); i++)
 //    {
@@ -114,64 +146,128 @@ int main(void) {
 //    
 //    //sendPic(Bild1); //funktioniert!
 //    
-//    uint8_t critical;
+//    uint8_t critical = 150;
 	
 	while (1)
 	{
         //displayPlant(ADCH);   
         
         //ohne Autotrigger funktioniert
-        //ADCSRA |= (1<<ADSC);    //start conversion
+        ADCSRA |= (1<<ADSC);    //start conversion
 
         //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
         //kï¿½nnten wir auch seltener abfragen, ï¿½ber Timer steuern wann die conversion gestartet wird
-       // while(!(ADCSRA & (1<<ADSC))){
+        while(!(ADCSRA & (1<<ADSC))){
         
-        //};
+        };
         
         //mit Interrupt enable fï¿½r ADC kommt IRGENDWAS beim Uart an
-        //USART_TransmitPolling(test);
-        //USART_TransmitPolling(ADCH);
+        USART_TransmitPolling(0xAA);
+        trash= ADCL;        //es sollen immer beide Werte ausgelesen werden
+        USART_TransmitPolling(ADCH);
+        
+        _delay_ms(500);
         
         //Prototype programmablauf
-        if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
-        {   
-            sleepLongFlag = 1;
-            LED_ON;
-            startSleepTimer();
-        }
-        if(BUTTON2_PRESS && buttonFlag ==0)   //activate Long Sleep Timer, kein Entprellen nötig
-        {
-            buttonFlag = 1;
-            _delay_ms(64);      //mit delay gelöst da alle TImer schon beelgt waren 
-            //timer 1 wird für den SleepTimer gebraucht. Dieser könnte abgebrochen werden wenn währendessen der button gedrückt wird
-            //Timer 0&2 werden für den buzzer gebraucht, könnte diesen durcheinander brigne  wenn währendessen der button gedrückt wird
-            // besser microcontroller wird hier kurz blockiert anstatt für die ganze melodyspielzeit0
-            if(BUTTON2_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
-            {   
-                melodyPicker++;
-                if(melodyPicker >2)
-                {
-                        melodyPicker=0;
-                }
-            }
-        }
-        if(!BUTTON2_PRESS)
-        {
-            buttonFlag = 0;
-        }
- 
-        if(sleepFlag == 0 && sleepLongFlag == 0){
-           // if(ADCH > critical)
-           // {
-                if(sonic_burst() != 0)
-                {
-                    play_sound(melodyPicker);
-                    sleepFlag = 1;
-                    startSleepTimer();
-                }
-            //}
-        }
-	}
+//        if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
+//        {   
+//            sleepLongFlag = 1;
+//            LED_ON;
+////          SendCommandSeq(windowSleep,6);
+////    
+////          for(uint16_t i= 0; i < (166*122); i++)
+////           {
+////               SPISend8Bit(0x55); //
+////               SPISend8Bit(0x27); //
+////            }
+//            startSleepTimer();
+//        }
+//        if(BUTTON2_PRESS && buttonFlag ==0)   //activate Long Sleep Timer, kein Entprellen nötig
+//        {
+//            buttonFlag = 1;
+//            _delay_ms(64);      //mit delay gelöst da alle TImer schon beelgt waren 
+//            //timer 1 wird für den SleepTimer gebraucht. Dieser könnte abgebrochen werden wenn währendessen der button gedrückt wird
+//            //Timer 0&2 werden für den buzzer gebraucht, könnte diesen durcheinander brigne  wenn währendessen der button gedrückt wird
+//            // besser microcontroller wird hier kurz blockiert anstatt für die ganze melodyspielzeit0
+//            if(BUTTON2_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
+//            {   
+//                melodyPicker++;
+//                if(melodyPicker >2)
+//                {
+//                        melodyPicker=0;
+//                }
+//                
+////                  SendCommandSeq(windowMelody0,6);
+////    
+////                  for(uint16_t i= 0; i < (166*122); i++)
+////                  {
+////                      SPISend8Bit(0x00); //
+////                      SPISend8Bit(0x00); //
+////                  }
+//                    
+////                  SendCommandSeq(windowMelody1,6);
+////    
+////                  for(uint16_t i= 0; i < (166*122); i++)
+////                  {
+////                      SPISend8Bit(0x00); //
+////                      SPISend8Bit(0x00); //
+////                  }
+//                    
+////                  SendCommandSeq(windowMelody2,6);
+////    
+////                  for(uint16_t i= 0; i < (166*122); i++)
+////                  {
+////                      SPISend8Bit(0x00); //
+////                      SPISend8Bit(0x00); //
+////                  }      
+//                if(melodyPicker == 0)
+//                {
+////                  SendCommandSeq(windowMelody0,6);
+////    
+////                  for(uint16_t i= 0; i < (166*122); i++)
+////                  {
+////                      SPISend8Bit(0x55); //
+////                      SPISend8Bit(0x27); //
+////                  }      
+//                }
+//                if(melodyPicker == 1)
+//                {
+////                  SendCommandSeq(windowMelody1,6);
+////    
+////                  for(uint16_t i= 0; i < (166*122); i++)
+////                  {
+////                      SPISend8Bit(0x55); //
+////                      SPISend8Bit(0x27); //
+////                  }      
+//                }
+//                if(melodyPicker == 2)
+//                {
+////                  SendCommandSeq(windowMelody2,6);
+////    
+////                  for(uint16_t i= 0; i < (166*122); i++)
+////                  {
+////                      SPISend8Bit(0x55); //
+////                      SPISend8Bit(0x27); //
+////                  }      
+//                }
+//            }
+//        }
+//        if(!BUTTON2_PRESS)
+//        {
+//            buttonFlag = 0;
+//        }
+// 
+//        if(sleepFlag == 0 && sleepLongFlag == 0){
+//           // if(ADCH > critical)
+//           // {
+//                if(sonic_burst() != 0)
+//                {
+//                    play_sound(melodyPicker);
+//                    sleepFlag = 1;
+//                    startSleepTimer();
+//                }
+//            //}
+//        }
+    }
     return 0;
 }

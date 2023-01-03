@@ -17,9 +17,16 @@ void moist_Init(){
      sei();
      
     //ADC     
-    ADMUX=0x61; //AVCC at AREF Pin, Left Adjust on, Input ADC1
+     ADMUX=0;
+    ADMUX |= (1<<REFS0); 
+    ADMUX |= (1<<ADLAR);
+    ADMUX |= (1<<MUX0);//AVCC at AREF Pin, Left Adjust on, Input ADC1
    // ADCSRA = 0x86;        //ohne Autotrigger, Prescaler 64
-    ADCSRA = 0xA6; //ADC enable, Auto Trigger and  Interrupt disabled,Interupt Flag disabled, Prescaler 64
+    ADCSRA = 0;
+    ADCSRA |= (1<<ADEN); 
+    ADCSRA |= (1<<ADPS0);
+    ADCSRA |= (1<<ADPS1);
+    ADCSRA |= (1<<ADPS2);//ADC enable, Auto Trigger and  Interrupt disabled,Interupt Flag disabled, Prescaler 128
     //ADCSRA = 0xAE; //ADC enable, Auto Trigger and  Interrupt enabled,Interupt Flag disabled, Prescaler 64
     ADCSRB = 0;
     ADCSRA |= (1<<ADSC);    //start conversion
