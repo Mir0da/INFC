@@ -55,7 +55,7 @@ ISR(TIMER1_COMPB_vect)
         TCCR1B &= ~(1<<CS12); 
         TCCR1B &= ~(1<<CS10);
     }
-    if(count > 5 && sleepLongFlag == 1)  //72 für ~ 5min
+    if(count > 5 && sleepLongFlag == 1)  //72 fï¿½r ~ 5min
     {
         sleepFlag=0;
         sleepLongFlag = 0;
@@ -100,34 +100,31 @@ int main(void) {
     uint8_t buttonFlag=0;
     uint8_t trash;
 
-//    uint16_t windowAnimation[] ={
+//    uint16_t plantwindow[] ={
 //        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
+//        0x1269, 0x1505, 0x1305, 0x16AA //Werte fuer Fenstergroesse, xEnde(106), xAnfang(6), yStart(6), yEnde (171)       
+//	};
+//    uint16_t statuswindow[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x127E, 0x156A, 0x1305, 0x16AA //Werte fuer Fenstergroesse, xEnde(127), xAnfang(107), yStart(6), yEnde (171)       
+//	};
+//    uint16_t sleepwindow[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x1279, 0x156F, 0x1341, 0x164B //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(66), yEnde (76)       
+//	};
+//    uint16_t melody1window[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x1279, 0x156F, 0x1373, 0x167D //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(116), yEnde (126)       
+//	};
+//    uint16_t melody2window[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x1279, 0x156F, 0x1385, 0x168F //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(134), yEnde (144)       
+//	};
+//    uint16_t melody3window[] ={
+//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
+//        0x1279, 0x156F, 0x1397, 0x16A1 //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(152), yEnde (162)       
 //	};
     
-    //    uint16_t windowStatus[] ={
-//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
-//	};
-    
-//    uint16_t windowSleep[] ={
-//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
-//	};
-//    uint16_t windowMelody0[] ={
-//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
-//	};
-//    
-//    uint16_t windowMelody1[] ={
-//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
-//	};
-//    
-//    uint16_t windowMelody2[] ={
-//        0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-//        0x127E, 0x1505, 0x1305, 0x16AA //Werte fï¿½r Fenstergrï¿½ï¿½e, xAnfang (0x1267), xEnde, yStart, yEnde (0x169D)       
-//	};
     
 //    
 //    for(uint16_t i= 0; i < (176*132); i++)
@@ -136,7 +133,7 @@ int main(void) {
 //       SPISend8Bit(0x00); // SCHWARZ 0x0000
 //    }
 //    
-//    SendCommandSeq(window,6);
+//    SendCommandSeq(plantwindow,6);
 //    
 //    for(uint16_t i= 0; i < (166*122); i++)
 //    {
@@ -169,7 +166,7 @@ int main(void) {
         _delay_ms(500);
         
         //Prototype programmablauf
-//        if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
+//        if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen nï¿½tig
 //        {   
 //            sleepLongFlag = 1;
 //            LED_ON;
@@ -182,14 +179,14 @@ int main(void) {
 ////            }
 //            startSleepTimer();
 //        }
-//        if(BUTTON2_PRESS && buttonFlag ==0)   //activate Long Sleep Timer, kein Entprellen nötig
+//        if(BUTTON2_PRESS && buttonFlag ==0)   //activate Long Sleep Timer, kein Entprellen nï¿½tig
 //        {
 //            buttonFlag = 1;
-//            _delay_ms(64);      //mit delay gelöst da alle TImer schon beelgt waren 
-//            //timer 1 wird für den SleepTimer gebraucht. Dieser könnte abgebrochen werden wenn währendessen der button gedrückt wird
-//            //Timer 0&2 werden für den buzzer gebraucht, könnte diesen durcheinander brigne  wenn währendessen der button gedrückt wird
-//            // besser microcontroller wird hier kurz blockiert anstatt für die ganze melodyspielzeit0
-//            if(BUTTON2_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
+//            _delay_ms(64);      //mit delay gelï¿½st da alle TImer schon beelgt waren 
+//            //timer 1 wird fï¿½r den SleepTimer gebraucht. Dieser kï¿½nnte abgebrochen werden wenn wï¿½hrendessen der button gedrï¿½ckt wird
+//            //Timer 0&2 werden fï¿½r den buzzer gebraucht, kï¿½nnte diesen durcheinander brigne  wenn wï¿½hrendessen der button gedrï¿½ckt wird
+//            // besser microcontroller wird hier kurz blockiert anstatt fï¿½r die ganze melodyspielzeit0
+//            if(BUTTON2_PRESS)   //activate Long Sleep Timer, kein Entprellen nï¿½tig
 //            {   
 //                melodyPicker++;
 //                if(melodyPicker >2)
