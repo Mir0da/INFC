@@ -7,6 +7,7 @@
 
 
 #include <xc.h>
+#include "buttons.h"
 
 void button_Init(){
     //Button 1 for long Sleep Timer

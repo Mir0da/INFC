@@ -18,51 +18,50 @@
 #include <util/delay.h>  // Generates a Blocking Delay
 #include <avr/interrupt.h>
 
-volatile uint8_t sleepFlag=0;
-volatile uint8_t sleepLongFlag=0;
-volatile uint8_t melodyPicker =0;
+volatile uint8_t sleepFlag = 0;
+volatile uint8_t sleepLongFlag = 0;
+volatile uint8_t melodyPicker = 0;
+volatile uint8_t animateCounter = 0;
  
-void startSleepTimer(){
+void startControlTimer(){
     //reset everything
     TCCR1A = 0;
     TCCR1B = 0;
     TIMSK1 = 0;
     TIFR1 = 0;
-    TCNT1 = 0;	/* Clear Timer counter */
+    TCNT1 = 0;	///Clear Timer counter
     
     //configure Timer for ~5min
     TCCR1A = 0;
-    TCCR1B |= (1<<WGM12);
-    TCCR1B |= (1<<CS12) | (1<<CS10);
-    TCCR1C |= (1<<FOC1B);
-    TIMSK1 |= (1<<OCIE1B);
-    OCR1A= 65535; //max value for OCR1B, 71 overflows = 297.8sec
+    TCCR1B |= (1<<WGM12);       //CTC Mode
+    TCCR1B |= (1<<CS12) | (1<<CS10);    //Prescaler 1024
+    TCCR1C |= (1<<FOC1B);       //enable B Match Interrupt
+    TIMSK1 |= (1<<OCIE1B);      //enable B Match Interrupt
+    OCR1A= 15625; //1 sec
 }
 
 ISR(TIMER1_COMPB_vect)
 {
-	static volatile uint8_t count = 0;
+	static volatile uint16_t sleepCount = 0;
  
-    if(count > 2 && sleepLongFlag == 0) 
+    if(sleepCount > 5 && sleepLongFlag == 0 && sleepFlag == 1) 
     {
         sleepFlag=0;
-        count = 0;
-        //stop timer
-        TCCR1B &= ~(1<<CS12); 
-        TCCR1B &= ~(1<<CS10);
+        sleepCount = 0;
     }
-    if(count > 5 && sleepLongFlag == 1)  //72 fuer ~ 5min
+    if(sleepCount > 10 && sleepLongFlag == 1)  //300 sec= 5 min
     {
         sleepFlag=0;
         sleepLongFlag = 0;
-        count = 0;
+        sleepCount = 0;
         drawSleepStatus(0);
-        //stop timer
-        TCCR1B &= ~(1<<CS12); 
-        TCCR1B &= ~(1<<CS10);
     }
      
-    count++;
+    displayPlant(150);   // TODO adVal
+    if(sleepLongFlag == 1 || sleepFlag == 1)
+    {
+        sleepCount++;
+    }
 }
 
 int main(void) {
@@ -80,39 +79,42 @@ int main(void) {
     uint8_t trash;
 
     
-//    
-//    for(uint16_t i= 0; i < (176*132); i++)
-//    {
-//       SPISend8Bit(0x00); // SCHWARZ 0x0000
-//       SPISend8Bit(0x00); // SCHWARZ 0x0000
-//    }
-//    
+    for(uint16_t i= 0; i < (176*132); i++)
+    {
+       SPISend8Bit(0x00); // SCHWARZ 0x00
+       SPISend8Bit(0x00); // SCHWARZ 0x00
+    }
+    
    
     
- //   drawStatus();   
+    drawStatus();   
     uint8_t critical = 180;
+    uint8_t adVal;
+    startControlTimer();
 	
 	while (1)
 	{
-        //displayPlant(ADCH);   
-
-        //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
-        while(!(ADCSRA & (1<<ADSC))){
         
-        };
 
-        //Testkrams
-        USART_TransmitPolling(0xAA);
-        trash= ADCL;        //es sollen immer beide Werte ausgelesen werden
-        USART_TransmitPolling(ADCH);
+        //TODO einkommentieren
+        //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
+//        while(!(ADCSRA & (1<<ADSC))){
+//        
+//        };
+//         
+//        //Testkrams
+//        USART_TransmitPolling(0xAA);
+//        trash= ADCL;        //es sollen immer beide Werte ausgelesen werden
+//        USART_TransmitPolling(ADCH);
 
+        adVal=ADCH;
         
  //       Prototype programmablauf
         if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen n�tig
         {   
             sleepLongFlag = 1;
             drawSleepStatus(1);
-            startSleepTimer();
+            startControlTimer();
         }
         if(BUTTON2_PRESS && buttonFlag ==0)   //activate Long Sleep Timer, kein Entprellen n�tig
         {
@@ -143,7 +145,7 @@ int main(void) {
                 {
                     play_sound(melodyPicker);
                     sleepFlag = 1;
-                    startSleepTimer();
+                    startControlTimer();
                 }
             }
         }

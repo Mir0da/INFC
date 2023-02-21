@@ -39,8 +39,6 @@
 
 
 void button_Init();
-void check_Buttons();
-
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

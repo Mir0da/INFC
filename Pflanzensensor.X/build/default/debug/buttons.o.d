@@ -1,4 +1,4 @@
-build/default/debug/main.o.d build/default/debug/main.o: main.c \
+build/default/debug/buttons.o.d build/default/debug/buttons.o: buttons.c \
  c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\xc.h \
  c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\cci.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h \
@@ -13,12 +13,8 @@ build/default/debug/main.o.d build/default/debug/main.o: main.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\portpins.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h moist.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h uart.h \
- buzzer.h display.h ultrasonic.h buttons.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
+ buttons.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\lib\gcc\avr\5.4.0\include\xc.h:
 
@@ -50,22 +46,4 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
-moist.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
-
-uart.h:
-
-buzzer.h:
-
-display.h:
-
-ultrasonic.h:
-
 buttons.h:
-
-c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h:

@@ -20,19 +20,19 @@ uint16_t statuswindow[] ={
 };
 uint16_t sleepwindow[] ={
     0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-    0x1279, 0x156F, 0x1341, 0x164B //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(66), yEnde (76)       
+    0x127C, 0x1572, 0x1342, 0x164C //Werte fuer Fenstergroesse, xEnde(125), xAnfang(115), yStart(67), yEnde (77)       
 };
 uint16_t melody0window[] ={
     0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-    0x1279, 0x156F, 0x1373, 0x167D //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(116), yEnde (126)       
+    0x127C, 0x1572, 0x1374, 0x167E //Werte fuer Fenstergroesse, xEnde(125), xAnfang(115), yStart(117), yEnde (127)       
 };
 uint16_t melody1window[] ={
     0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-    0x1279, 0x156F, 0x1385, 0x168F //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(134), yEnde (144)       
+    0x127C, 0x1572, 0x1386, 0x1690 //Werte fuer Fenstergroesse, xEnde(125), xAnfang(115), yStart(135), yEnde (145)       
 };
 uint16_t melody2window[] ={
     0xEF08, 0x1805, //Initialisierungsstart, Landscape Modus
-    0x1279, 0x156F, 0x1397, 0x16A1 //Werte fuer Fenstergroesse, xEnde(122), xAnfang(112), yStart(152), yEnde (162)       
+    0x127C, 0x1572, 0x1398, 0x16A2 //Werte fuer Fenstergroesse, xEnde(125), xAnfang(115), yStart(153), yEnde (163)       
 };
 
 #endif /* PICTURE_H_ */

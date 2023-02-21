@@ -17,7 +17,7 @@ void moist_Init(){
      sei();
      
     //ADC     
-     ADMUX=0;
+    ADMUX=0;
     ADMUX |= (1<<REFS0); 
     ADMUX |= (1<<ADLAR);
     ADMUX |= (1<<MUX0);//AVCC at AREF Pin, Left Adjust on, Input ADC1
