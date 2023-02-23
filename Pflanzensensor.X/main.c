@@ -22,6 +22,7 @@ volatile uint8_t sleepFlag = 0;
 volatile uint8_t sleepLongFlag = 0;
 volatile uint8_t melodyPicker = 0;
 volatile uint8_t animateCounter = 0;
+volatile uint8_t adVal = 0;
  
 void startControlTimer(){
     //reset everything
@@ -31,7 +32,7 @@ void startControlTimer(){
     TIFR1 = 0;
     TCNT1 = 0;	///Clear Timer counter
     
-    //configure Timer for ~5min
+    //configure Timer for 1sec
     TCCR1A = 0;
     TCCR1B |= (1<<WGM12);       //CTC Mode
     TCCR1B |= (1<<CS12) | (1<<CS10);    //Prescaler 1024
@@ -49,7 +50,7 @@ ISR(TIMER1_COMPB_vect)
         sleepFlag=0;
         sleepCount = 0;
     }
-    if(sleepCount > 10 && sleepLongFlag == 1)  //300 sec= 5 min
+    if(sleepCount > 300 && sleepLongFlag == 1)  //300 sec = 5 min
     {
         sleepFlag=0;
         sleepLongFlag = 0;
@@ -57,7 +58,7 @@ ISR(TIMER1_COMPB_vect)
         drawSleepStatus(0);
     }
      
-    displayPlant(150);   // TODO adVal
+    displayPlant(adVal); 
     if(sleepLongFlag == 1 || sleepFlag == 1)
     {
         sleepCount++;
@@ -76,7 +77,9 @@ int main(void) {
     Display_init();
     
     uint8_t buttonFlag=0;
-    uint8_t trash;
+    uint8_t trash = 0;
+    uint8_t critical = 180;
+   
 
     
     for(uint16_t i= 0; i < (176*132); i++)
@@ -88,42 +91,37 @@ int main(void) {
    
     
     drawStatus();   
-    uint8_t critical = 180;
-    uint8_t adVal;
-    startControlTimer();
+    //startControlTimer();
 	
 	while (1)
 	{
         
-
-        //TODO einkommentieren
         //ADC ist im Autotrigger mode, man muss nur warten bis ein ergebnis da ist.
-//        while(!(ADCSRA & (1<<ADSC))){
-//        
-//        };
-//         
-//        //Testkrams
-//        USART_TransmitPolling(0xAA);
-//        trash= ADCL;        //es sollen immer beide Werte ausgelesen werden
-//        USART_TransmitPolling(ADCH);
-
+        while(!(ADCSRA & (1<<ADSC))){
+        
+        };
+         
+        
+        trash= ADCL;        //es sollen immer beide Werte ausgelesen werden
         adVal=ADCH;
+        //Test, Wert des AD Wandlers ausgeben
+        //USART_TransmitPolling(ADCH);
         
  //       Prototype programmablauf
-        if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen nï¿½tig
+        if(BUTTON1_PRESS)   //activate Long Sleep Timer, kein Entprellen nötig
         {   
             sleepLongFlag = 1;
             drawSleepStatus(1);
             startControlTimer();
         }
-        if(BUTTON2_PRESS && buttonFlag ==0)   //activate Long Sleep Timer, kein Entprellen nï¿½tig
+        if(BUTTON2_PRESS && buttonFlag ==0)  
         {
             buttonFlag = 1;
             _delay_ms(64);      //mit delay gelï¿½st da alle TImer schon beelgt waren 
             //timer 1 wird fuer den SleepTimer gebraucht. Dieser kï¿½nnte abgebrochen werden wenn waehrendessen der button gedrueckt wird
             //Timer 0&2 werden fuer den buzzer gebraucht, kï¿½nnte diesen durcheinander brigne  wenn waehrendessen der button gedrueckt wird
             // besser microcontroller wird hier kurz blockiert anstatt fï¿½r die ganze melodyspielzeit0
-            if(BUTTON2_PRESS)   //activate Long Sleep Timer, kein Entprellen nï¿½tig
+            if(BUTTON2_PRESS)  
             {   
                 melodyPicker++;
                 if(melodyPicker >2)

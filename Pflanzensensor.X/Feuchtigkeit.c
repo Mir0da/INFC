@@ -13,9 +13,7 @@
 
 
 void moist_Init(){
-    
-     sei();
-     
+
     //ADC     
     ADMUX=0;
     ADMUX |= (1<<REFS0); 

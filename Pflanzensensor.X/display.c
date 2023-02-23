@@ -176,40 +176,32 @@ void drawMelodyStatus(uint8_t melodyPicker){
     if(melodyPicker == 0)
     {
       SendCommandSeq(melody0window,6);
-
-      for(uint16_t i= 0; i < (11*11); i++)
-      {
-          SPISend8Bit(0x55); // grün
-          SPISend8Bit(0x27); // grün
-      }      
+      
     }
     if(melodyPicker == 1)
     {
       SendCommandSeq(melody1window,6);
-
-      for(uint16_t i= 0; i < (11*11); i++)
-      {
-          SPISend8Bit(0x55); // grün
-          SPISend8Bit(0x27); // grün
-      }      
+      
     }
     if(melodyPicker == 2)
     {
       SendCommandSeq(melody2window,6);
-
-      for(uint16_t i= 0; i < (11*11); i++)
+    
+    }
+      
+    //for schleife aus den einzelnen if abfragen genommen und 1x am Ende eingefügt um Wiederholung zu vermeiden.
+    for(uint16_t i= 0; i < (11*11); i++)
       {
           SPISend8Bit(0x55); // grün
           SPISend8Bit(0x27); // grün
-      }      
-    }
+      }  
 
 }
 
-void drawSleepStatus(uint8_t pick){
+void drawSleepStatus(uint8_t sleep){
        SendCommandSeq(sleepwindow,6);
     
-    if(pick == 0)
+    if(sleep == 0)
     {
           for(uint16_t i= 0; i < (11*11); i++)
            {

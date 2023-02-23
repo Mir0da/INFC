@@ -24,7 +24,7 @@
 #define G2 80
 #define A2 71
 #define H2 63
-#define C3 60
+#define C1 60
 
 // Pins and Macros
 #define BUZZER PIND5

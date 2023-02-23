@@ -35,9 +35,7 @@ void sonic_Init(){
     DDRB &= ~(1<<ECHO);     //set as input
     PORTB |= (1<<PORTB0); //enable pull-up 
     
-    DDRC |= (1<<DDC2); //Test LED
-
-	sei();			/* Enable global interrupt */	
+    //DDRC |= (1<<DDC2); //Test LED
 }
 
 void initTimer_1(){
@@ -52,7 +50,6 @@ void initTimer_1(){
     TCCR1C |= (1<<FOC1A);
     TIMSK1 |= (1<<OCIE1A);
     OCR1A= 192;
-    sei();
 }
 
 void initTimer_2(){

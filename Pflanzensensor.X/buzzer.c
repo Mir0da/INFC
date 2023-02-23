@@ -19,7 +19,7 @@ ISR(TIMER2_COMPA_vect){
      
      static volatile uint8_t overflowCounter = 0;
    
-     if(overflowCounter > 20)
+     if(overflowCounter > 16)
      {
         play_melody(); 
         overflowCounter =0;
@@ -46,8 +46,7 @@ void buzzer_Init(){
     TCCR0A |= (1<<WGM01)|(1<<WGM00);
     TCCR0B |= (1<<WGM02);
     
-    //Soundlegth
-    
+    //Soundlegth  
     TCCR2A |= (1<<WGM21);   //CTC Mode
     TCCR2B |= (1<<FOC2A); // force output compare match
     OCR2A = 250; //16ms -> ca61 overflows für 1sec
@@ -55,7 +54,7 @@ void buzzer_Init(){
     //Timer/Counter0 Output Compare Match A Interrupt Enable
     TIMSK2 = (1<<OCIE2A);
     
-    //activate interrupts
+    // Enable global interrupts	
     sei();
 }
 

@@ -3,13 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/display.c</file>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/Feuchtigkeit.c</file>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/newSonic.c</file>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/display.h</file>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/buzzer.c</file>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/picture.c</file>
-            <file>file:/C:/Users/sophi/OneDrive/Dokumente/GitHub/INFC/Pflanzensensor.X/main.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/uart.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/buttons.h</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/main.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/buzzer.h</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/Feuchtigkeit.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/buzzer.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/display.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/picture.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/newSonic.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/buttons.c</file>
+            <file>file:/C:/Users/sophi/OneDrive/Dokumente/Studium/Informatik%20C/Projekt/INFC/Pflanzensensor.X/Ultraschall.c</file>
         </group>
     </open-files>
 </project-private>
